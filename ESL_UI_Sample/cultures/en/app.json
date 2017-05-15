@@ -6,5 +6,55 @@
   },
   "home": {
     "title": "Home View"
+  },
+  "viewType1": {
+    "title": "Matching to pictures",
+    "viewType1Model": {
+      "editableListForm1": {
+        "textInstruction": {
+          "title": "Instruction"
+        },
+        "image": {
+          "title": "Image"
+        }
+      }
+    }
+  },
+  "viewType2": {
+    "title": "Multiple choice questions or in line"
+  },
+  "viewType3": {
+    "title": "Multiple choice in line"
+  },
+  "viewType4": {
+    "title": "Categorizing"
+  },
+  "viewType5": {
+    "title": "Matching language in a text"
+  },
+  "viewType6": {
+    "title": "Finding useful language in a text"
+  },
+  "viewType7": {
+    "title": "Form table (drag and drop)"
+  },
+  "viewType8": {
+    "title": "Part of speech matching"
+  },
+  "viewType9": {
+    "title": "Label a cline"
+  },
+  "viewType10": {
+    "title": "Label a timeline"
+  },
+  "viewType11": {
+    "title": "Match language to timelines",
+    "viewType11Model": {
+      "editableListForm": {
+        "date": {
+          "title": "Date"
+        }
+      }
+    }
   }
 }

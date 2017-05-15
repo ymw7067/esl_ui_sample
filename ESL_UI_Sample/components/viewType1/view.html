@@ -1,0 +1,139 @@
+<style>
+        #listView {
+            padding: 10px 5px;
+            margin-bottom: -1px;
+        }
+        .product {
+            float: left;
+            position: relative;
+            width: 110px;
+            height: 150px;
+            margin: 0 5px;
+            padding: 0;
+            /*  border-style: solid;  */
+        }
+        .productitem{
+            position: absolute;
+            bottom: 0;
+        }
+        .productitem img {
+            height: 100px;
+            width: auto;
+        }
+</style>
+
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType1" data-show="app.viewType1.onShow" data-after-show="app.viewType1.afterShow" id="viewType1Screen" class="screen">
+    <div id="viewType1Model" class="form-view screen__content screen__content--form add-item-view">
+        <!-- START_CUSTOM_CODE_viewType1Model -->
+        <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="form-content-item">
+                    <label id="textInstructionField" class="km-label-above field field--text-block">
+
+                        <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
+
+
+                        <div class="textBlock field__content">Match the words below to the pictures</div>
+
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <button data-role="button" class="km-small">kind</button>
+                    <button data-role="button" class="km-small">brave</button>
+                    <button data-role="button" class="km-small">spoiled</button>
+                    <button data-role="button" class="km-small">generous</button>
+                    <button data-role="button" class="km-small">idiot</button>
+                    <button data-role="button" class="km-small">cool</button>
+                    <button data-role="button" class="km-small">messy</button>
+                    <button data-role="button" class="km-small">genius</button>
+                    <button data-role="button" class="km-small">immature</button>
+                </li>
+                <li class="form-content-item">
+
+                    <div id="listView" data-role="listview" >
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture1.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture2.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture3.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture4.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture5.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture6.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture7.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture8.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="productitem">
+                                <img src="resources/Picture9.png">
+                                <h4>_____________</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+
+
+            </ul>
+
+            <div class="button-group">
+            </div>
+        </form>
+        <!-- END_CUSTOM_CODE_viewType1Model -->
+    </div>
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <a data-role="backbutton" data-align="left">Back</a>
+
+            <span data-bind="text: strings.viewType1.title"></span>
+
+            <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
+
+        </div>
+    </header>
+
+
+    <!-- START_CUSTOM_CODE_viewType1 -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+
+    <!-- END_CUSTOM_CODE_viewType1 -->
+</div>

@@ -1,0 +1,78 @@
+<style>
+.pcell {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    padding-right: 10px;
+}
+</style>
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType5" data-show="app.viewType5.onShow" data-after-show="app.viewType5.afterShow" id="viewType5Screen" class="screen">
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <a data-role="backbutton" data-align="left">Back</a>
+
+            <span data-bind="text: strings.viewType5.title"></span>
+
+            <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
+
+        </div>
+    </header>
+
+
+    <!-- START_CUSTOM_CODE_viewType5 -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="form-content-item">
+                    Read the text and match the highlighted words to these meanings:<br/>
+                    (Drag and drop) – <button data-role="button" data-icon="about" class="km-primary km-small">Vid instruction</button>
+                </li>
+                <li class="form-content-item">
+                    <div class="pcell">
+                    _______________ = not clean
+                    </div>
+                    <div class="pcell">
+                    _______________ = many different types
+                    </div>
+                    <div class="pcell">
+                    _______________ = many people like it
+                    </div>
+                    <div class="pcell">
+                    _______________ = not safe
+                    </div>
+                    <div class="pcell">
+                    _______________ = enjoy yourself
+                    </div>
+                    <div class="pcell">
+                    _______________ = relax
+                    </div>
+                </li>
+                <li class="form-content-item">
+London is a beautiful city in the south of England.<br/><br/>
+It’s a very old city and you can visit lots of interesting places. There are beautiful parks like Hyde Park and Regent’s Park where you can play sports like football and tennis, or you can just <mark>chill out</mark> with friends. You can go to the park every day but you can’t go late at night because the parks close at 10pm.<br/><br/>
+
+There are lots of swimming pools so you can go swimming inside but you can’t swim in the sea because there aren’t any beaches. You can take a boat on the river Thames but you can’t swim in the river because the water is <mark>dirty</mark> and it’s <mark>dangerous</mark>. You can go ice-skating inside but you can’t go skiing because there aren’t any mountains.<br/><br/>
+
+You can go shopping in the <mark>popular</mark> West End area and there are lots of interesting museums, so you can visit them too. You can take a bus or the underground to the city centre, or if you have a lot of money you can take a taxi. You can take a bus in the day or night but you can’t take the underground all night because it closes at 12.30am.<br/><br/>
+
+In the evening you can go to the cinema or the theatre. After that you can have dinner in a nice restaurant. There are lots of restaurants, so you can eat <mark>a wide variety</mark> of food from many different countries.<br/><br/>
+
+London is a very big city so you can always <mark>have fun</mark> and meet new people.
+Come to London. I’m sure you’ll like it!<br/><br/>
+                </li>
+                <li class="form-content-item">
+                    <span style="vertical-align: middle"><b>Listen and repeat</b></span> <img src="resources/icon_uk.png" style="width:32px; height:auto; vertical-align: middle"> <img src="resources/icon_usa.png" style="width:32px; height:auto; vertical-align: middle">
+                    <br/><br/>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">chill out</button>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">dirty</button>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">dangerous</button>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">popular</button>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">a wide variety</button>
+                    <button data-role="button" data-icon="sounds" class="km-primary km-small">have fun</button>
+                </li>
+            </ul>
+        </form>
+    <!-- END_CUSTOM_CODE_viewType5 -->
+</div>

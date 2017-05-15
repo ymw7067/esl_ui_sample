@@ -17,31 +17,27 @@
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/viewType11/index.js"></script>
+    <script src="components/viewType10/index.js"></script>
+    <script src="components/viewType9/index.js"></script>
+    <script src="components/viewType8/index.js"></script>
+    <script src="components/viewType7/index.js"></script>
+    <script src="components/viewType6/index.js"></script>
+    <script src="components/viewType5/index.js"></script>
+    <script src="components/viewType4/index.js"></script>
+    <script src="components/viewType2/index.js"></script>
+    <script src="components/viewType1/index.js"></script>
     <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
+                <a data-role="backbutton" data-align="left">Back</a>
                 <span data-role="view-title"></span>
+                <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
             </div>
         </header>
         <footer data-role="footer">
-            <div data-role="tabstrip" id="navigation-container">
-                <a href="components/home/view.html" data-icon="home"><span class="navigation-link-text" data-bind="text: strings.home.title"></span></a>
-            </div>
-            <div id="navigation-container-more" style="display: none">
-            </div>
         </footer>
-    </div>
-
-
-    <div id="navigation-show-more-view" data-role="view" data-title="Show More" data-layout="main">
-        <header data-role="header">
-            <div data-role="navbar">
-                <span data-bind="text: strings._app.showMoreTitle"></span>
-            </div>
-        </header>
-        <ul data-role="listview" data-style="inset" data-click="app.listViewClick">
-        </ul>
     </div>
 
     <div data-role="layout" data-id="main-nonav">
@@ -52,6 +48,21 @@
         </header>
         <footer data-role="footer">
         </footer>
+    </div>
+
+    <div data-role="view" data-layout="main-nonav" data-title="Sample Lessons By Templates">
+        <ul id="navigation-container" data-role="listview" data-style="inset">
+            <li><a href="components/viewType1/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType1.title"></span></a></li>
+            <li><a href="components/viewType2/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType2.title"></span></a></li>
+            <li><a href="components/viewType4/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType4.title"></span></a></li>
+            <li><a href="components/viewType5/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType5.title"></span></a></li>
+            <li><a href="components/viewType6/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType6.title"></span></a></li>
+            <li><a href="components/viewType7/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType7.title"></span></a></li>
+            <li><a href="components/viewType8/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType8.title"></span></a></li>
+            <li><a href="components/viewType9/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType9.title"></span></a></li>
+            <li><a href="components/viewType10/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType10.title"></span></a></li>
+            <li><a href="components/viewType11/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType11.title"></span></a></li>
+        </ul>
     </div>
     <div id="notify" class="notify-pop-up">
         <span class="notify-pop-up__content"></span>
