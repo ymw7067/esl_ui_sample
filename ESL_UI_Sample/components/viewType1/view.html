@@ -10,18 +10,48 @@
             height: 150px;
             margin: 0 5px;
             padding: 0;
-            /*  border-style: solid;  */
+            border: 1px solid #efefef;
+            margin-bottom: 10px;
         }
         .productitem{
+            width: 100%;
             position: absolute;
             bottom: 0;
         }
         .productitem img {
-            height: 100px;
-            width: auto;
+            height: auto;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-</style>
 
+        .answer {
+            padding-left:5px;
+            width: 95px;
+            height:25px;
+        }
+
+    	#drop_items {
+    		padding: 60px 0 0;
+    	}
+
+        ul {
+        	list-style: none;
+        }
+
+		.draggable.drag
+		{
+			cursor: default;
+			background-color: buttonface;
+		}
+		
+		.items_delete {
+			cursor: pointer;
+            display: none;
+		}
+        
+</style>
 <div data-role="view" data-title="View" data-layout="main" data-model="app.viewType1" data-show="app.viewType1.onShow" data-after-show="app.viewType1.afterShow" id="viewType1Screen" class="screen">
     <div id="viewType1Model" class="form-view screen__content screen__content--form add-item-view">
         <!-- START_CUSTOM_CODE_viewType1Model -->
@@ -39,71 +69,80 @@
                     </label>
                 </li>
                 <li class="form-content-item">
-                    <button data-role="button" class="km-small">kind</button>
-                    <button data-role="button" class="km-small">brave</button>
-                    <button data-role="button" class="km-small">spoiled</button>
-                    <button data-role="button" class="km-small">generous</button>
-                    <button data-role="button" class="km-small">idiot</button>
-                    <button data-role="button" class="km-small">cool</button>
-                    <button data-role="button" class="km-small">messy</button>
-                    <button data-role="button" class="km-small">genius</button>
-                    <button data-role="button" class="km-small">immature</button>
+                    <button data-role="button" class="km-small draggable">kind</button>
+                    <button data-role="button" class="km-small draggable">brave</button>
+                    <button data-role="button" class="km-small draggable">spoiled</button>
+                    <button data-role="button" class="km-small draggable">generous</button>
+                    <button data-role="button" class="km-small draggable">idiot</button>
+                    <button data-role="button" class="km-small draggable">cool</button>
+                    <button data-role="button" class="km-small draggable">messy</button>
+                    <button data-role="button" class="km-small draggable">genius</button>
+                    <button data-role="button" class="km-small draggable">immature</button>
                 </li>
                 <li class="form-content-item">
 
                     <div id="listView" data-role="listview" >
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture1.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture2.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture3.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture4.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture5.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture6.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture7.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture8.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
-                        <div class="product">
+                        <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture9.png">
-                                <h4>_____________</h4>
+                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,8 @@
 'use strict';
 
 app.viewType9 = kendo.observable({
-    onShow: function() {},
+    onShow: function() {
+    },
     afterShow: function() {}
 });
 app.localization.registerView('viewType9');

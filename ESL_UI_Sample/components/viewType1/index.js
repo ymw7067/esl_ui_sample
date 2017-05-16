@@ -41,6 +41,71 @@ app.localization.registerView('viewType1');
             /// end add form data init
         });
         /// start add form show
+        /****************************************
+         *  Draggable
+         ****************************************/
+
+        $("img", ".productitem").each(function(i, el) {
+            var box_width = $(".product").width();
+            var box_height = $(".product").height();
+            $(el).load(function() {
+
+                if (120 < $(el).height()) {
+                    $(el).css({  "width": "auto", "height": "120px" });
+                }
+            });
+        });
+         
+        $(".draggable").kendoDraggable({
+            hint: function(elem) {
+                return elem.clone();
+            },
+            dragstart: function(e) {
+                e.currentTarget.addClass("drag");
+            },
+            dragend: function(e) {
+                e.currentTarget.removeClass("drag");
+                $(".droptarget").css("border-color", "#efefef").css("border-width", "1px");
+            }
+        });
+
+        $(".droptarget").kendoDropTarget({
+            dragenter: function(e) {
+                 e.dropTarget.css("border-color", "#000088").css("border-width", "2px");
+            },
+            dragleave: function(e) {
+                e.dropTarget.css("border-color", "#efefef");
+            },
+            drop: function(e) {
+                e.draggable.element.hide();
+                if (e.dropTarget.find(".answer").text() != "") {
+                    var text = e.dropTarget.find(".answer").text();
+                    $("button").each(function(i) {
+                        if ($(this).text() == text) {
+                            $(this).show();
+                        }
+                    });
+                    e.dropTarget.find(".answer").text(e.draggable.element.text());
+                } else {
+                    e.dropTarget.find(".answer").text(e.draggable.element.text());
+                }
+                e.draggable.element.removeClass("drag");
+                e.dropTarget.find(".items_delete").show();
+            }
+        });
+
+        $(".items_delete, .answer").click(function(e) {
+            var text = $(this).parent().find(".answer").text();
+            $("button").each(function(i) {
+                if ($(this).text() == text) {
+                    $(this).show();
+                }
+            });
+            $(this).parent().find(".items_delete").hide();
+            $(this).parent().find(".answer").text("");
+        });
+
+
         /// end add form show
     });
     parent.set('viewType1Model', viewType1Model);
