@@ -6,7 +6,7 @@
         .product {
             float: left;
             position: relative;
-            width: 110px;
+            width: 150px;
             height: 150px;
             margin: 0 5px;
             padding: 0;
@@ -27,9 +27,12 @@
         }
 
         .answer {
-            padding-left:5px;
-            width: 95px;
+            padding-left:10px;
+            width: 130px;
             height:25px;
+        }
+        .wrong {
+            color: red;
         }
 
     	#drop_items {
@@ -52,7 +55,7 @@
 		}
         
 </style>
-<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType1" data-show="app.viewType1.onShow" data-after-show="app.viewType1.afterShow" id="viewType1Screen" class="screen">
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType1" data-init="app.viewType1.onInit" data-show="app.viewType1.onShow" data-after-show="app.viewType1.afterShow" id="viewType1Screen" class="screen">
     <div id="viewType1Model" class="form-view screen__content screen__content--form add-item-view">
         <!-- START_CUSTOM_CODE_viewType1Model -->
         <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
@@ -68,16 +71,18 @@
 
                     </label>
                 </li>
-                <li class="form-content-item">
-                    <button data-role="button" class="km-small draggable">kind</button>
-                    <button data-role="button" class="km-small draggable">brave</button>
-                    <button data-role="button" class="km-small draggable">spoiled</button>
-                    <button data-role="button" class="km-small draggable">generous</button>
-                    <button data-role="button" class="km-small draggable">idiot</button>
-                    <button data-role="button" class="km-small draggable">cool</button>
-                    <button data-role="button" class="km-small draggable">messy</button>
-                    <button data-role="button" class="km-small draggable">genius</button>
-                    <button data-role="button" class="km-small draggable">immature</button>
+                <li id="sticky_source" class="form-content-item">
+                    <div id="sticky_content">
+                        <button data-role="button" class="km-small draggable">kind</button>
+                        <button data-role="button" class="km-small draggable">brave</button>
+                        <button data-role="button" class="km-small draggable">spoiled</button>
+                        <button data-role="button" class="km-small draggable">generous</button>
+                        <button data-role="button" class="km-small draggable">idiot</button>
+                        <button data-role="button" class="km-small draggable">cool</button>
+                        <button data-role="button" class="km-small draggable">messy</button>
+                        <button data-role="button" class="km-small draggable">genius</button>
+                        <button data-role="button" class="km-small draggable">immature</button>
+                    </div>
                 </li>
                 <li class="form-content-item">
 
@@ -85,63 +90,63 @@
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture1.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="cool">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture2.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="kind">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture3.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="immature">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture4.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left"  e-word="spoiled">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture5.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="generous">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture6.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="messy">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture7.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="brave">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture8.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="idiot">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
                         <div class="product droptarget">
                             <div class="productitem">
                                 <img src="resources/Picture9.png">
-                                <div class="answer" style="float:left">&nbsp;</div>
+                                <div class="answer" style="float:left" e-word="genius">&nbsp;</div>
                                 <div class="items_delete k-icon" style="float:left">x</div>
                             </div>
                         </div>
@@ -151,9 +156,6 @@
 
 
             </ul>
-
-            <div class="button-group">
-            </div>
         </form>
         <!-- END_CUSTOM_CODE_viewType1Model -->
     </div>
@@ -165,8 +167,12 @@
             <span data-bind="text: strings.viewType1.title"></span>
 
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
-
         </div>
+        <ul id="sticky_panel" style="display:none" class="form-content" data-role="listview" data-style="inset">
+            <li id="sticky_target" class="form-content-item">
+            </li>
+        </ul>
+        <div id="info" style="position:absolute; bottom:0px"></div>
     </header>
 
 

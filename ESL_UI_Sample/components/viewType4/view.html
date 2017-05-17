@@ -1,7 +1,7 @@
 <style>
 .ddtable {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #888888;
     width:100%;
     /*min-height:200px;*/
     min-height:150px;
@@ -9,7 +9,7 @@
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #888888;
     text-align: center;
 }
 
@@ -22,20 +22,17 @@ ul {
 }
 .good_bad_droptarget, .adjectives_nouns_droptarget {
     vertical-align: top;
-    height: 140px;
-    line-height: 18px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
 }
+
 .good_bad_answer_items, .adjectives_nouns_answer_items {
-    margin: 0 5px;
     clear: both;
-    height: 20px;
     cursor: pointer;
+    padding: 10px 10px;
+    height:40px;
 }
-.good_bad_answer_items:hover, .adjectives_nouns_answer_items:hover {
-    background: #ffffaa;
-}
+
 .good_bad_answer_items .good_bad_answer, .adjectives_nouns_answer_items .adjectives_nouns_answer {
     float: left;
 }
@@ -84,11 +81,11 @@ ul {
                                 <b>(-) Negative (Bad)</b>
                             </td>
                         </tr>
-                        <tr height="100%">
-                            <td>
+                        <tr>
+                            <td height="100%">
                                 <div class="good_bad_droptarget" e-word="good"></div>
                             </td>
-                            <td>
+                            <td height="100%">
                                 <div class="good_bad_droptarget" e-word="bad"></div>
                             </td>
                         </tr>
@@ -118,11 +115,11 @@ ul {
                                 <b>Noun</b>
                             </td>
                         </tr>
-                        <tr height="100%">
-                            <td>
+                        <tr>
+                            <td height="100%">
                                 <div class="adjectives_nouns_droptarget" e-word="adjectives"></div>
                             </td>
-                            <td>
+                            <td height="100%">
                                 <div class="adjectives_nouns_droptarget" e-word="nouns"></div>
                             </td>
                         </tr>

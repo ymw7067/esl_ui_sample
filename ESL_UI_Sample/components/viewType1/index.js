@@ -1,6 +1,7 @@
 'use strict';
 
 app.viewType1 = kendo.observable({
+    _vtop: 0,
     onShow: function() {},
     afterShow: function() {}
 });
@@ -8,7 +9,6 @@ app.localization.registerView('viewType1');
 
 // START_CUSTOM_CODE_viewType1
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
 // END_CUSTOM_CODE_viewType1
 (function(parent) {
     var
@@ -33,6 +33,38 @@ app.localization.registerView('viewType1');
 
     /// start form functions
     /// end form functions
+    
+    parent.set('onInit', function _onInit(e) {
+        $("<div id='sticky_dummy' e-fixed='no'></div>").insertBefore($("#sticky_content", "#viewType1Screen"));
+
+      var scroller = e.view.scroller;
+      scroller.bind("scroll", function(e) {
+          var top = $("#sticky_dummy", "#viewType1Screen").offset().top;
+          var fixed = $("#sticky_dummy", "#viewType1Screen").attr("e-fixed");
+
+          if( top )
+            parent._vtop = top;
+
+          if( parent._vtop <= e.scrollTop  ) {
+            if( fixed == "no" ) {
+                // sticky_panel 로 옮긴다.
+                $("#sticky_target", "#viewType1Screen").append($("#sticky_content", "#viewType1Screen"));
+                $("#sticky_dummy", "#viewType1Screen").attr("e-fixed", "yes");
+                $("#sticky_panel", "#viewType1Screen").show();
+                $("#sticky_source", "#viewType1Screen").hide();
+            }
+          } else {
+            if( fixed == "yes" ) {
+                $("#sticky_dummy", "#viewType1Screen").after($("#sticky_content", "#viewType1Screen"));
+                $("#sticky_dummy", "#viewType1Screen").attr("e-fixed", "no");
+                $("#sticky_panel", "#viewType1Screen").hide();
+                $("#sticky_source", "#viewType1Screen").show();
+            }
+          }
+
+        //$("#info").html($("#sticky").offset().top + "; " + e.scrollTop + ", " + e.scrollLeft);
+      });
+    });
 
     parent.set('onShow', function _onShow() {
         var that = parent;
@@ -44,7 +76,6 @@ app.localization.registerView('viewType1');
         /****************************************
          *  Draggable
          ****************************************/
-
         $("img", ".productitem").each(function(i, el) {
             var box_width = $(".product").width();
             var box_height = $(".product").height();
@@ -56,7 +87,7 @@ app.localization.registerView('viewType1');
             });
         });
          
-        $(".draggable").kendoDraggable({
+        $(".draggable", "#viewType1Screen").kendoDraggable({
             hint: function(elem) {
                 return elem.clone();
             },
@@ -65,11 +96,11 @@ app.localization.registerView('viewType1');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("drag");
-                $(".droptarget").css("border-color", "#efefef").css("border-width", "1px");
+                $(".droptarget", "#viewType1Screen").css("border-color", "#efefef").css("border-width", "1px");
             }
         });
 
-        $(".droptarget").kendoDropTarget({
+        $(".droptarget", "#viewType1Screen").kendoDropTarget({
             dragenter: function(e) {
                  e.dropTarget.css("border-color", "#000088").css("border-width", "2px");
             },
@@ -86,6 +117,10 @@ app.localization.registerView('viewType1');
                         }
                     });
                     e.dropTarget.find(".answer").text(e.draggable.element.text());
+                    if( e.dropTarget.find(".answer").text() == e.dropTarget.find(".answer").attr("e-word") )
+                       e.dropTarget.find(".answer").removeClass("wrong"); 
+                    else
+                       e.dropTarget.find(".answer").addClass("wrong"); 
                 } else {
                     e.dropTarget.find(".answer").text(e.draggable.element.text());
                 }

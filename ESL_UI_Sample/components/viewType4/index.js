@@ -54,16 +54,16 @@ app.localization.registerView('viewType4');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("drag");
-                $(".good_bad_droptarget").parent().css({ "border-color": "#ccc", "border-width": "1px" });
+                $(".good_bad_droptarget").parent().css({ "border-color": "#888888", "border-width": "1px" });
             }
         });
         
         $(".good_bad_droptarget").kendoDropTarget({
             dragenter: function(e) {
-                e.dropTarget.parent().css({ "border-color": "#000", "border-width": "2px" });
+                e.dropTarget.parent().css({ "border-color": "#000088", "border-width": "2px" });
             },
             dragleave: function(e) {
-                e.dropTarget.parent().css({ "border-color": "#ccc", "border-width": "1px"});
+                e.dropTarget.parent().css({ "border-color": "#888888", "border-width": "1px"});
             },
             drop: function(e) {
                 e.dropTarget.append('<div class="good_bad_answer_items"><div class="good_bad_answer">' + e.draggable.element.text() + '</div><div class="good_bad_items_delete">x</div></div>');
@@ -91,16 +91,16 @@ app.localization.registerView('viewType4');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("drag");
-                $(".adjectives_nouns_droptarget").parent().css({ "border-color": "#ccc", "border-width": "1px" });
+                $(".adjectives_nouns_droptarget").parent().css({ "border-color": "#888888", "border-width": "1px" });
             }
         });
         
         $(".adjectives_nouns_droptarget").kendoDropTarget({
             dragenter: function(e) {
-                e.dropTarget.parent().css({ "border-color": "#000", "border-width": "2px" });
+                e.dropTarget.parent().css({ "border-color": "#000088", "border-width": "2px" });
             },
             dragleave: function(e) {
-                e.dropTarget.parent().css({ "border-color": "#ccc", "border-width": "1px"});
+                e.dropTarget.parent().css({ "border-color": "#888888", "border-width": "1px"});
             },
             drop: function(e) {
                 e.dropTarget.append('<div class="adjectives_nouns_answer_items"><div class="adjectives_nouns_answer">' + e.draggable.element.text() + '</div><div class="adjectives_nouns_items_delete">x</div></div>');
@@ -142,5 +142,5 @@ app.localization.registerView('viewType4');
 
         /// end add form show
     });
-    parent.set('viewType4Model', viewType1Model);
+    parent.set('viewType4Model', viewType4Model);
 })(app.viewType4);
