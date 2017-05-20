@@ -1,1 +1,26 @@
- 
+.e-line {
+    border-radius: 0px;
+    border-top: 1px solid rgb(223, 225, 226);
+}
+
+.e-list {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.e-list > .e-list-item {
+    overflow: hidden;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    background: transparent;
+    padding: 1.09em 0.84em 1.23em;
+    color: rgb(50, 54, 76);
+    border-color: rgb(223, 225, 226);
+}
+
+.e-list > .e-list-item label {
+    color: #9da2a4;
+}
+

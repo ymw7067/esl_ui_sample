@@ -116,14 +116,14 @@ app.localization.registerView('viewType1');
                             $(this).show();
                         }
                     });
-                    e.dropTarget.find(".answer").text(e.draggable.element.text());
-                    if( e.dropTarget.find(".answer").text() == e.dropTarget.find(".answer").attr("e-word") )
-                       e.dropTarget.find(".answer").removeClass("wrong"); 
-                    else
-                       e.dropTarget.find(".answer").addClass("wrong"); 
-                } else {
-                    e.dropTarget.find(".answer").text(e.draggable.element.text());
                 }
+                e.dropTarget.find(".answer").text(e.draggable.element.text());
+                if( e.dropTarget.find(".answer").text() == e.dropTarget.find(".answer").attr("e-word") ) {
+                    e.dropTarget.find(".answer").removeClass("wrong"); 
+                } else {
+                    e.dropTarget.find(".answer").addClass("wrong");
+                } 
+
                 e.draggable.element.removeClass("drag");
                 e.dropTarget.find(".items_delete").show();
             }

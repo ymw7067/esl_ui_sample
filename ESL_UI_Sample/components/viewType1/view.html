@@ -4,7 +4,6 @@
             margin-bottom: -1px;
         }
         .product {
-            float: left;
             position: relative;
             width: 150px;
             height: 150px;
@@ -53,25 +52,22 @@
 			cursor: pointer;
             display: none;
 		}
-        
+
 </style>
 <div data-role="view" data-title="View" data-layout="main" data-model="app.viewType1" data-init="app.viewType1.onInit" data-show="app.viewType1.onShow" data-after-show="app.viewType1.afterShow" id="viewType1Screen" class="screen">
     <div id="viewType1Model" class="form-view screen__content screen__content--form add-item-view">
         <!-- START_CUSTOM_CODE_viewType1Model -->
         <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
         <form>
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
+            <div class="form-content e-list">
+                <div class="form-content-item e-list-item">
                     <label id="textInstructionField" class="km-label-above field field--text-block">
-
                         <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
-
-
                         <div class="textBlock field__content">Match the words below to the pictures</div>
-
                     </label>
-                </li>
-                <li id="sticky_source" class="form-content-item">
+                </div>
+                <div class="e-line"></div>
+                <div id="sticky_source" class="form-content-item e-list-item">
                     <div id="sticky_content">
                         <button data-role="button" class="km-small draggable">kind</button>
                         <button data-role="button" class="km-small draggable">brave</button>
@@ -83,95 +79,89 @@
                         <button data-role="button" class="km-small draggable">genius</button>
                         <button data-role="button" class="km-small draggable">immature</button>
                     </div>
-                </li>
-                <li class="form-content-item">
-
-                    <div id="listView" data-role="listview" >
-                        <div class="product droptarget">
-                            <div class="productitem">
+                </div>
+                <div class="e-line"></div>
+                <div class="form-content-item e-list-item">
+                    <div id="listView" class="clearfix">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture1.png">
-                                <div class="answer" style="float:left" e-word="cool">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="cool">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture2.png">
-                                <div class="answer" style="float:left" e-word="kind">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="kind">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture3.png">
-                                <div class="answer" style="float:left" e-word="immature">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="immature">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture4.png">
-                                <div class="answer" style="float:left"  e-word="spoiled">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="spoiled">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture5.png">
-                                <div class="answer" style="float:left" e-word="generous">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="generous">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture6.png">
-                                <div class="answer" style="float:left" e-word="messy">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="messy">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture7.png">
-                                <div class="answer" style="float:left" e-word="brave">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="brave">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture8.png">
-                                <div class="answer" style="float:left" e-word="idiot">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="idiot">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
-                        <div class="product droptarget">
-                            <div class="productitem">
+                        <div class="product droptarget pull-left">
+                            <div class="productitem clearfix">
                                 <img src="resources/Picture9.png">
-                                <div class="answer" style="float:left" e-word="genius">&nbsp;</div>
-                                <div class="items_delete k-icon" style="float:left">x</div>
+                                <div class="answer pull-left" e-word="genius">&nbsp;</div>
+                                <div class="items_delete pull-left">x</div>
                             </div>
                         </div>
                     </div>
-
-                </li>
-
-
-            </ul>
+                </div>
+            </div>
         </form>
         <!-- END_CUSTOM_CODE_viewType1Model -->
     </div>
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-
             <a data-role="backbutton" data-align="left">Back</a>
-
             <span data-bind="text: strings.viewType1.title"></span>
-
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
         </div>
-        <ul id="sticky_panel" style="display:none" class="form-content" data-role="listview" data-style="inset">
-            <li id="sticky_target" class="form-content-item">
-            </li>
-        </ul>
+        <div id="sticky_panel" style="display:none" class="form-content e-list">
+            <div id="sticky_target" class="form-content-item e-list-item">
+            </div>
+        </div>
         <div id="info" style="position:absolute; bottom:0px"></div>
     </header>
 
