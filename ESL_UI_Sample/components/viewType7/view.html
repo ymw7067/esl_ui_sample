@@ -1,15 +1,26 @@
 <style>
-.ddtable {
-    border-collapse: collapse;
-    border: 1px solid black;
-    width:100%;
-    min-height:200px;
-    margin-top: 10px;
+.en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
+    border: none;
 }
 
-table, th, td {
-    border: 1px solid black;
-    text-align: center;
+.en-table-align-middle > tbody > tr > td, .en-table-align-middle > tbody > tr > th, .en-table-align-middle > tfoot > tr > td, .en-table-align-middle > tfoot > tr > th, .en-table-align-middle > thead > tr > td, .en-table-align-middle > thead > tr > th {
+     vertical-align: middle;
+}
+
+.en-table-nopadding>tbody>tr>td, .en-table-nopadding>tbody>tr>th, .en-table-nopadding>tfoot>tr>td, .en-table-nopadding>tfoot>tr>th, .en-table-nopadding>thead>tr>td, .en-table-nopadding>thead>tr>th {
+    padding: 0 5px;
+}
+
+.en-table-blank {
+    border-bottom:2px solid gray;
+    height:100%;
+    color: navy;
+    min-width:35px;
+    min-height:22px
+}
+
+.en-font-small {
+    font-size:0.8em;
 }
 </style>
 <div data-role="view" data-title="View" data-layout="main" data-model="app.viewType7" data-show="app.viewType7.onShow" data-after-show="app.viewType7.afterShow" id="viewType7Screen" class="screen">
@@ -25,31 +36,173 @@ table, th, td {
         </div>
     </header>
 
-
     <!-- START_CUSTOM_CODE_viewType7 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
-                    Look at the sentences and put the parts of speech in the gaps
-                </li>
-                <li class="form-content-item">
-                    <table class="ddtable">
-                        <tr>
-                            <td colspan="2">
-                                <b>(+) Positive Form</b>
-                            </td>
-                        </tr>
-                        <tr height="100%">
-                            <td width="100%"></td>
-                            <td>
-                                <button data-role="button" class="km-small">modal verb (+)</button>
-                                <button data-role="button" class="km-small">V1 (infinitive)</button>
-                                <button data-role="button" class="km-small">subject</button>
-                            </td>
-                        </tr>
+    <div class="form-content en-list">
+        <div class="form-content-item en-list-item">
+            <label id="textInstructionField" class="km-label-above field field--text-block">
+                <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
+                <div class="textBlock field__content">Look at the sentences and put the parts of speech in the gaps</div>
+            </label>
+        </div>
+        <div class="en-line"></div>
+        <div class="form-content-item en-list-item">
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2">
+                        <b>(+) Positive Form</b>
+                    </td>
+                </tr>
+                <tr height="100%">
+                    <td width="100%">
+                        <table border="0" class="table en-table-borderless table-condensed en-table-align-middle en-table-nopadding">
+                            <tr>
+                                <td>
+                                    I<br/>
+                                    You<br/>
+                                    He/She/It<br/>
+                                    We/They
+                                </td>
+                                <td>can</td>
+                                <td>play</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button data-role="button" class="km-small">modal verb (+)</button>
+                        <button data-role="button" class="km-small">V1 (infinitive)</button>
+                        <button data-role="button" class="km-small">subject</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-content-item en-list-item">
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2">
+                        <b>(-) Negative Form</b>
+                    </td>
+                </tr>
+                <tr height="100%">
+                    <td width="100%">
+                        <table border="0" class="table en-table-borderless table-condensed en-table-align-middle en-table-nopadding">
+                            <tr>
+                                <td>
+                                    I<br/>
+                                    You<br/>
+                                    He/She/It<br/>
+                                    We/They
+                                </td>
+                                <td style="padding-right:10px;">
+                                    can't<br/>
+                                    <div class="en-table-blank en-font-small">&nbsp;</div>
+                                </td>
+                                <td>play</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button data-role="button" class="km-small">modal verb (-)</button>
+                        <button data-role="button" class="km-small">V1 (infinitive)</button>
+                        <button data-role="button" class="km-small">cannot</button>
+                        <button data-role="button" class="km-small">subject</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-                    </table>
-                </li>
-            </ul>
+        <div class="form-content-item en-list-item">
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2">
+                        <b>(?) Question Form</b>
+                    </td>
+                </tr>
+                <tr height="100%">
+                    <td width="100%">
+                        <table border="0" class="table en-table-borderless table-condensed en-table-align-middle en-table-nopadding">
+                            <tr>
+                                <td>Can</td>
+                                <td>
+                                    I<br/>
+                                    You<br/>
+                                    He/She/It<br/>
+                                    We/They
+                                </td>
+                                <td>play....?</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">modal verb (-)</div></td>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">subject</div></td>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">V1 (infinitive)</div></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button data-role="button" class="km-small">modal verb (-)</button>
+                        <button data-role="button" class="km-small">V1 (infinitive)</button>
+                        <button data-role="button" class="km-small">subject</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-content-item en-list-item">
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2">
+                        <b>Short answers</b>
+                    </td>
+                </tr>
+                <tr height="100%">
+                    <td width="100%">
+                        <table border="0" class="table en-table-borderless en-table-align-middle">
+                            <tr>
+                                <td>
+                                    <div class="en-table-blank pull-left">Can</div><div class="pull-left">&nbsp; you go shopping?</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pull-left">Yes, you &nbsp;</div><div class="en-table-blank pull-left">can</div><div class="pull-left">.</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pull-left">No, you &nbsp;</div><div class="en-table-blank pull-left"></div><div class="pull-left">.</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button data-role="button" class="km-small">can't</button>
+                        <button data-role="button" class="km-small">can</button>
+                        <button data-role="button" class="km-small">can</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
     <!-- END_CUSTOM_CODE_viewType7 -->
 </div>

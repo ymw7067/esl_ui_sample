@@ -36,7 +36,17 @@
     "title": "Finding useful language in a text"
   },
   "viewType7": {
-    "title": "Form table (drag and drop)"
+    "title": "Form table (drag and drop)",
+    "viewType1Model": {
+      "editableListForm1": {
+        "textInstruction": {
+          "title": "Instruction"
+        },
+        "image": {
+          "title": "Image"
+        }
+      }
+    }
   },
   "viewType8": {
     "title": "Part of speech matching"
