@@ -11,8 +11,7 @@ app.viewType4 = kendo.observable({
 
     // method
     initTemplate: function(e) {},
-    initGoodBadDragdrop: function(e) {},
-    initAdjectivesNounsDragdrop: function(e) {}
+    initDragdrop: function(e) {},
 });
 app.localization.registerView('viewType4');
 
@@ -68,8 +67,7 @@ app.localization.registerView('viewType4');
         view.screen = $("#viewType4Screen")
 
         view.initTemplate(e);
-        view.initGoodBadDragdrop(e);
-        view.initAdjectivesNounsDragdrop(e);
+        view.initDragdrop(e);
     });
 
     view.set('onShow', function(e) {
@@ -77,7 +75,6 @@ app.localization.registerView('viewType4');
             /// start add form data init
             /// end add form data init
         });
-        /// start add form show
         
         // 재방문 할때를 위해 초기화 한다.
         e.view.scroller.scrollTo(0,0);
@@ -110,7 +107,7 @@ app.localization.registerView('viewType4');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initGoodBadDragdrop', function (e) {
+    view.set('initDragdrop', function (e) {
         $(".en-draggable", view.screen).kendoDraggable({
             hint: function(el) {
                 return el.clone();
@@ -130,44 +127,6 @@ app.localization.registerView('viewType4');
             },
             dragleave: function(e) {
                 e.dropTarget.removeClass("en-draggable-target");
-            },
-            drop: function(e) {
-                var word = e.draggable.element;
-                var answer = e.dropTarget;
-
-                if( word.attr("en-word") != answer.attr("en-word") ) {
-                    e.preventDefault();
-                    return;
-                }
-
-                word.hide();
-                answer.append("<div>" + word.text() + "</div>");
-                word.removeClass("en-drag");
-            }
-        });
-    });
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initAdjectivesNounsDragdrop', function (e) {
-        $(".en-adjectives-nouns-draggable", view.screen).kendoDraggable({
-            hint: function(el) {
-                return el.clone();
-            },
-            dragstart: function(e) {
-                e.currentTarget.addClass("en-drag");
-            },
-            dragend: function(e) {
-                e.currentTarget.removeClass("en-drag");
-                $(".en-adjectives-nouns-droptarget", view.screen).removeClass("en-adjectives-nouns-draggable-target");
-            }
-        });
-
-        $(".en-adjectives-nouns-droptarget", view.screen).kendoDropTarget({
-            dragenter: function(e) {
-                 e.dropTarget.addClass("en-adjectives-nouns-draggable-target");
-            },
-            dragleave: function(e) {
-                e.dropTarget.removeClass("en-adjectives-nouns-draggable-target");
             },
             drop: function(e) {
                 var word = e.draggable.element;
