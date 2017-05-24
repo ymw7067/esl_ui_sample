@@ -87,11 +87,17 @@
 #viewType2Screen .en-content-item {
     margin: 0 0 5px;
 }
-#viewType2Screen .en-content-item div.pull-left {
-    height: 47px;
-    line-height: 47px;
+#viewType2Screen .en-content-item div.pull-left, #viewType2Screen .km-widget.km-buttongroup.pull-left {
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     padding-right: 10px;
+}
+#viewType2Screen .en-content-item div.pull-left:first-child {
+    margin-left: -5px;
+}
+#viewType2Screen .km-buttongroup {
+    margin: auto;
 }
 #viewType2Screen .km-button.km-state-active .km-text {
     -webkit-text-fill-color: initial;
