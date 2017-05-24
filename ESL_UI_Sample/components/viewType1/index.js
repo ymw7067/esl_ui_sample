@@ -188,7 +188,7 @@ app.localization.registerView('viewType1');
             dragleave: function(e) {
                 e.dropTarget.removeClass("en-draggable-target");
             },
-            drop: function(e) {
+            drop: function(e) { 
                 var word = e.draggable.element;
                 var answer = e.dropTarget.find(".en-answer");
 
