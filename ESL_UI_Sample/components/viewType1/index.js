@@ -11,10 +11,12 @@ app.viewType1 = kendo.observable({
     beforeHide: function(e) {},
 
     // method
-    initScroll: function(e) {},
     initTemplate: function(e) {},
     initImages: function(e) {},
-    initDragdrop: function(e) {}
+    initDragdrop: function(e) {},
+    bindScroll: function(e) {},
+    unbindScroll: function(e) {},
+    sticky: function(fixed) {}
 });
 app.localization.registerView('viewType1');
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,7 +59,6 @@ app.localization.registerView('viewType1');
         // 초기화 루틴
         view.screen = $("#viewType1Screen")
 
-        view.initScroll(e);
         view.initTemplate(e);
         view.initImages(e);
         view.initDragdrop(e);
@@ -70,6 +71,8 @@ app.localization.registerView('viewType1');
         });
         /// start add form show
         
+        view.bindScroll(e);
+
         // 재방문 할때를 위해 초기화 한다.
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
@@ -78,16 +81,16 @@ app.localization.registerView('viewType1');
     });
 
     view.set('beforeHide', function(e) {
-        e.view.scroller.scrollTo(0,0);
+        view.unbindScroll(e);
     });
 
     view.set('model', model);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initScroll', function(e) {
-        $('<div class="en-sticky-dummy" en-fixed="no"></div>').insertBefore($(".en-sticky-content", view.screen));
-
+    view.set('bindScroll', function(e) {
+        $('#sticky-panel').css("top", $('.km-header', view.screen).css('height'));
+        
         var scroller = e.view.scroller;
         scroller.bind("scroll", function(e) {
             var top = $(".en-sticky-dummy", view.screen).offset().top;
@@ -97,21 +100,39 @@ app.localization.registerView('viewType1');
 
             if( view.vtop <= e.scrollTop  ) {
                 if( fixed == "no" ) {
-                    // sticky_panel 로 옮긴다.
-                    $(".en-sticky-target", view.screen).append($(".en-sticky-content", view.screen));
-                    $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
-                    $(".en-sticky-panel", view.screen).show();
-                    $(".en-sticky-source", view.screen).hide();
+                    view.sticky(true);
                 }
             } else {
                 if( fixed == "yes" ) {
-                    $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", view.screen));
-                    $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
-                    $(".en-sticky-panel", view.screen).hide();
-                    $(".en-sticky-source", view.screen).show();
+                    view.sticky(false);
                 }
             }
         });
+    });
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+    view.set('unbindScroll', function(e) {
+        e.view.scroller.unbind("scroll");
+        
+        if( $(".en-sticky-dummy", view.screen).attr("en-fixed") == "yes" ) {
+            view.sticky(false);
+        }
+    });
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+    view.set('sticky', function(yes){
+        if( yes ) {
+            // sticky_panel 로 옮긴다.
+            $("#sticky-panel .form-content-item").append($(".en-sticky-content", view.screen));
+            $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
+            $("#sticky-panel").show();
+            $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+        } else {
+            $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", '#sticky-panel'));
+            $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
+            $("#sticky-panel").hide();
+            $(".en-sticky-source", view.screen).css("height", "");
+        }
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
