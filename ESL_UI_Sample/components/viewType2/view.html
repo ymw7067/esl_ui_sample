@@ -1,134 +1,96 @@
-<style>
-.qitem {
-    margin-top: 20px;
-    margin-left: 0;
-    padding-left: 10px;
-    list-style-type: none;
-}
-.qitem li {
-    margin:0 0 10px 0;   
-}
-
-.pcell {
-    height: 47px;
-    line-height: 47px;
-    text-align: center;
-    float: left;
-    padding-right: 5px;
-}
-.km-button.km-state-active .km-text {
-    -webkit-text-fill-color: initial;
-    color: navy;
-}
-
-
-</style>
 <div data-role="view" data-title="View" data-layout="main" data-model="app.viewType2" data-show="app.viewType2.onShow" data-after-show="app.viewType2.afterShow" id="viewType2Screen" class="screen">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-
             <a data-role="backbutton" data-align="left">Back</a>
-
             <span data-bind="text: strings.viewType2.title"></span>
-
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
-
         </div>
     </header>
 
-
     <!-- START_CUSTOM_CODE_viewType2 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-        <form>
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
-                    <b>1. </b> Mary’s parents give her 10 expensive gifts every year for her birthday.
-                    This year she’s angry because they didn’t have enough money for 10, so they gave her 9. She’s <b>spoiled.</b>
-                    <ul class="qitem">
-                        <li>
-                            <div class="pcell">• Spoiled </div> <div class="pcell">children </div> <div class="pcell">are </div><div class="pcell">given </div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">a little</li>
-                                <li class="km-small">enough</li>
-                                <li class="km-small">too</li>
-                            </ul>
-                            <div class="pcell">much</div> <div class="pcell">by</div> <div class="pcell">their</div> <div class="pcell">parents.</div>
-                            <div style="clear:both;"></div>
-                        </li>
-                        <li>
-                           <div class="pcell">• Spoiled</div> <div class="pcell">children</div> <div class="pcell">often</div> <div class="pcell">say</div> <div class="pcell">Thank</div> <div class="pcell">You.</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">Yes</li>
-                                <li class="km-small">No</li>
-                            </ul>
-                            <div style="clear:both;"></div>
-                        </li>
-                        <li>
-                            <div class="pcell">• Spoiled</div> <div class="pcell">children</div> <div class="pcell">are</div> <div class="pcell">fun</div> <div class="pcell">to</div> <div class="pcell">be</div> <div class="pcell">with.</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">Yes</li>
-                                <li class="km-small">No</li>
-                            </ul>
-                            <div style="clear:both;"></div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="form-content-item">
-                    <b>2. </b> John in 40 but he still wants to go to parties and act like a teenager. He’s <b>immature</b>.
-                    <ul class="qitem">
-                        <li>
-                           <div class="pcell">• Immature</div> <div class="pcell">people</div> <div class="pcell">act</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">older</li>
-                                <li class="km-small">younger</li>
-                                <li class="km-small">the same</li>
-                            </ul>
-                           <div class="pcell">as</div> <div class="pcell">their</div> <div class="pcell">age.</div>
-                            <div style="clear:both;"></div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="form-content-item">
-                    <b>3. </b>Albert Einstein is a mathematic <b>genius</b>. Mozart was a musical <b>genius</b>.
-                    <ul class="qitem">
-                        <li>
-                            <div class="pcell">• A genius</div> <div class="pcell">is</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">good</li>
-                                <li class="km-small">very good</li>
-                                <li class="km-small">bad</li>
-                            </ul>
-                            <div class="pcell">at something.</div>
-                            <div style="clear:both;"></div>
-                        </li>
-                        <li>
-                            <div class="pcell">• Being</div> <div class="pcell">a</div> <div class="pcell">genus</div> <div class="pcell">is</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px" data-orientation="vertical">
-                                <li class="km-small">a) something you learn</li>
-                                <li class="km-small">b) Something that comes from inside</li>
-                            </ul>
-                            <div style="clear:both;"></div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="form-content-item">
-                    <b>4. </b>My uncle always gives money and gifts to poor people in the winter. He’s <b>generous</b>.
-                    <ul class="qitem">
-                        <li>
-                            <div class="pcell">• Generous</div> <div class="pcell">people</div> <div class="pcell">give</div>
-                            <ul data-role="buttongroup" style="float:left; margin-right:10px">
-                                <li class="km-small">a lot</li>
-                                <li class="km-small">a little</li>
-                            </ul>
-                             <div class="pcell">to</div> <div class="pcell">other</div> <div class="pcell">people.</div>
-                            <div style="clear:both;"></div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <div class="button-group">
+    <form>
+        <div class="form-content en-list">
+            <div class="form-content-item en-list-item">
+                <b>1. </b> Mary’s parents give her 10 expensive gifts every year for her birthday.
+                This year she’s angry because they didn’t have enough money for 10, so they gave her 9. She’s <b>spoiled.</b>
+                <div class="en-content">
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Spoiled children are given</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">a little</li>
+                            <li class="km-small">enough</li>
+                            <li class="km-small">too</li>
+                        </ul>
+                        <div class="pull-left">much by their parents.</div>
+                    </div>
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Spoiled children often say Thank You.</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">Yes</li>
+                            <li class="km-small">No</li>
+                        </ul>
+                    </div>
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Spoiled children are fun to be with.</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">Yes</li>
+                            <li class="km-small">No</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </form>
+            <div class="form-content-item en-list-item">
+                <b>2. </b> John in 40 but he still wants to go to parties and act like a teenager. He’s <b>immature</b>.
+                <div class="en-content">
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Immature people act</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">older</li>
+                            <li class="km-small">younger</li>
+                            <li class="km-small">the same</li>
+                        </ul>
+                        <div class="pull-left">as their age.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-content-item en-list-item">
+                <b>3. </b>Albert Einstein is a mathematic <b>genius</b>. Mozart was a musical <b>genius</b>.
+                <div class="en-content">
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• A genius is</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">good</li>
+                            <li class="km-small">very good</li>
+                            <li class="km-small">bad</li>
+                        </ul>
+                        <div class="pull-left">at something.</div>
+                    </div>
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Being a genus is</div>
+                        <ul data-role="buttongroup" data-orientation="vertical" class="pull-left">
+                            <li class="km-small">a) something you learn</li>
+                            <li class="km-small">b) Something that comes from inside</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="form-content-item en-list-item">
+                <b>4. </b>My uncle always gives money and gifts to poor people in the winter. He’s <b>generous</b>.
+                <div class="en-content">
+                    <div class="en-content-item clearfix">
+                        <div class="pull-left">• Generous people give</div>
+                        <ul data-role="buttongroup" class="pull-left">
+                            <li class="km-small">a lot</li>
+                            <li class="km-small">a little</li>
+                        </ul>
+                        <div class="pull-left">to other people.</div>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="button-group">
+        </div>
+    </form>
     <!-- END_CUSTOM_CODE_viewType2 -->
 </div>
