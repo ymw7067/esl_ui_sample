@@ -22,6 +22,61 @@
     color: #9da2a4;
 }
 
+.en-table-simple-list {
+    width: 100%;
+    border-spacing: 0;
+    border-top: 1px solid #dadada;
+    border-left: 1px solid #dadada;
+    table-layout: fixed;
+}
+.en-table-simple-list thead th {
+    text-align: center;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    background-color: #eeeeee;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.en-table-simple-list thead td {
+    text-align: left;
+    padding: 0 10px;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.en-table-simple-list tbody th {
+    text-align: center;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    background-color: #f0f0f0;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.en-table-simple-list tbody td {
+    text-align: left;
+    padding: 0 10px;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.en-table-simple-list tbody td.center {
+    text-align: center;
+}
+.en-table-simple-list tbody td.numeric {
+    text-align: right;
+}
+
+
 #viewType1Screen .en-list-view {
     padding: 10px 5px;
     margin-bottom: -1px;
@@ -47,7 +102,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 #viewType1Screen .en-answer {
     padding-left:10px;
     padding-right:10px;
@@ -56,7 +110,6 @@
     height:25px;
     text-align: center;
 }
-
 #viewType1Screen .en-draggable.en-drag {
     cursor: default;
     background-color: buttonface;
@@ -102,4 +155,24 @@
 #viewType2Screen .km-button.km-state-active .km-text {
     -webkit-text-fill-color: initial;
     color: navy;
+}
+
+#viewType4Screen .en-good-bad-buttons-content, #viewType4Screen .en-adjectives-nouns-buttons-content {
+    margin-bottom: 10px;
+}
+#viewType4Screen .en-draggable.en-drag {
+    cursor: default;
+    background-color: buttonface;
+}
+#viewType4Screen .en-droptarget {
+    vertical-align: top;
+    min-height: 150px;
+    border: 1px solid transparent;
+}
+#viewType4Screen .en-droptarget.en-draggable-target {
+    margin-left: -9px;
+    margin-right: -9px;
+    padding-left: 8px;
+    border-color: #000088;
+    border-width: 2px;
 }

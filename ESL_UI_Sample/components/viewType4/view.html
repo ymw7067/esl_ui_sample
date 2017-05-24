@@ -1,133 +1,90 @@
-<style>
-.ddtable {
-    border-collapse: collapse;
-    border: 1px solid #888888;
-    width:100%;
-    /*min-height:200px;*/
-    min-height:150px;
-    margin-top: 10px;
-}
-
-table, th, td {
-    border: 1px solid #888888;
-    text-align: center;
-}
-
-ul {
-    list-style: none;
-}
-.good_bad_draggable.drag, .adjectives_nouns_draggable.drag {
-    cursor: default;
-    background-color: buttonface;
-}
-.good_bad_droptarget, .adjectives_nouns_droptarget {
-    vertical-align: top;
-    height: 100%;
-    width: 100%;
-}
-
-.good_bad_answer_items, .adjectives_nouns_answer_items {
-    clear: both;
-    cursor: pointer;
-    padding: 10px 10px;
-    height:40px;
-}
-
-.good_bad_answer_items .good_bad_answer, .adjectives_nouns_answer_items .adjectives_nouns_answer {
-    float: left;
-}
-.good_bad_answer_items .good_bad_items_delete, .adjectives_nouns_answer_items .adjectives_nouns_items_delete {
-    float: right;
-}
-</style>
-<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType4" data-show="app.viewType4.onShow" data-after-show="app.viewType4.afterShow" id="viewType4Screen" class="screen">
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType4" data-init="app.viewType4.onInit" data-show="app.viewType4.onShow" data-after-show="app.viewType4.afterShow" data-before-hide="app.viewType4.beforeHide" id="viewType4Screen" class="screen">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-
             <a data-role="backbutton" data-align="left">Back</a>
-
             <span data-bind="text: strings.viewType4.title"></span>
-
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
-
         </div>
     </header>
 
-
     <!-- START_CUSTOM_CODE_viewType4 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-        <form>
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
-                    a) Put the words in the right column
-                </li>
-                <li class="form-content-item">
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="good">kind</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="good">brave</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="bad">spoiled</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="good">generous</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="bad">idiot</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="good">cool</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="bad">messy</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="good">genius</button>
-                    <button data-role="button" class="km-small good_bad_draggable" e-word="bad">immature</button>
-                    <br/>
-                    <table class="ddtable">
-                        <tr>
-                            <td>
-                                <b>(+)  Positive (Good)</b>
-                            </td>
-                            <td>
-                                <b>(-) Negative (Bad)</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td height="100%">
-                                <div class="good_bad_droptarget" e-word="good"></div>
-                            </td>
-                            <td height="100%">
-                                <div class="good_bad_droptarget" e-word="bad"></div>
-                            </td>
-                        </tr>
-
+    <form>
+        <div class="form-content en-list">
+            <div class="form-content-item en-list-item">
+                a) Put the words in the right column
+            </div>
+            <div class="en-line"></div>
+            <div class="form-content-item en-list-item">
+                <div class="en-good-bad-buttons-content"></div>
+                <div>
+                    <table class="en-table-simple-list">
+                        <colgroup>
+                            <col width="50%" />
+                            <col />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>(+) Positive (Good)</th>
+                                <th>(-) Negative (Bad)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="en-droptarget" en-word="good"></div>
+                                </td>
+                                <td>
+                                    <div class="en-droptarget" en-word="bad"></div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
-                </li>
-                <li class="form-content-item">
-                    b) Decide if the words are adjectives (adj) or nouns (n)
-                </li>
-                <li class="form-content-item">
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="nouns">kind</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">brave</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">spoiled</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">generous</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="nouns">idiot</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">cool</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">messy</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="nouns">genius</button>
-                    <button data-role="button" class="km-small adjectives_nouns_draggable" e-word="adjectives">immature</button>
-                    <br/>
-                    <table class="ddtable">
-                        <tr>
-                            <td width="50%">
-                                <b>Adjective</b>
-                            </td>
-                            <td>
-                                <b>Noun</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td height="100%">
-                                <div class="adjectives_nouns_droptarget" e-word="adjectives"></div>
-                            </td>
-                            <td height="100%">
-                                <div class="adjectives_nouns_droptarget" e-word="nouns"></div>
-                            </td>
-                        </tr>
-
+                </div>
+            </div>
+            <div class="en-line"></div>
+            <div class="form-content-item en-list-item">
+                b) Decide if the words are adjectives (adj) or nouns (n)
+            </div>
+            <div class="en-line"></div>
+            <div class="form-content-item en-list-item">
+                <div class="en-adjectives-nouns-buttons-content"></div>
+                <div>
+                    <table class="en-table-simple-list">
+                        <colgroup>
+                            <col width="50%" />
+                            <col />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Adjective</th>
+                                <th>Noun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="en-droptarget" en-word="adjectives"></div>
+                                </td>
+                                <td>
+                                    <div class="en-droptarget" en-word="nouns"></div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
-                </li>
-            </ul>
-        </form>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--template은 data-role=button이 작동이 되질 않는다. (그래서 km-widget km-button을 수동으로 클래스에 추가)-->
+    <script type="text/x-kendo-template" class="en-good-bad-buttons-template">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-word="#:answer#">#:word#</button>
+    </script>
+
+    <script type="text/x-kendo-template" class="en-adjectives-nouns-buttons-template">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-word="#:answer#">#:word#</button>
+    </script>
 
     <!-- END_CUSTOM_CODE_viewType4 -->
 </div>
