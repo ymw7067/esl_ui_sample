@@ -28,7 +28,6 @@
 }
 
 
-
 .en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
     border: none;
 }
@@ -60,7 +59,6 @@
 .en-table-word.selected {
     color: blue;
 }
-
 
 
 .en-table-simple-list {
@@ -215,4 +213,22 @@
     padding-left: 8px;
     border-color: #000088;
     border-width: 2px;
+}
+
+#viewType5Screen mark {
+    cursor: pointer;  
+}
+#viewType5Screen mark.en-no-mark {
+    background: transparent;
+    cursor: default;
+}
+
+#viewType7Screen .en-droptarget {
+    border-bottom: 2px solid gray;
+}
+#viewType7Screen .en-droptarget.en-draggable-target {
+    border-bottom: 2px solid #000088;
+}
+#viewType7Screen .table {
+    margin-bottom: 0;
 }
