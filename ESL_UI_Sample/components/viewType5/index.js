@@ -57,7 +57,7 @@ app.localization.registerView('viewType5');
         // 재방문 할때를 위해 초기화 한다.
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
-        $(".en-draggable", view.screen).show();
+        $(".en-table-blank", view.screen).text("");
     });
 
     view.set('beforeHide', function(e) {
