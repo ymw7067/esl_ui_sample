@@ -58,6 +58,7 @@ app.localization.registerView('viewType5');
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
         $(".en-table-blank", view.screen).text("");
+        $(".en-table-blank, .en-table-word", view.screen).removeClass("selected");
     });
 
     view.set('beforeHide', function(e) {

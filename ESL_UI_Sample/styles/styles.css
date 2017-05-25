@@ -22,6 +22,12 @@
     color: #9da2a4;
 }
 
+.en-draggable.en-drag {
+    cursor: default;
+    background-color: buttonface;
+}
+
+
 
 .en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
     border: none;
@@ -38,7 +44,7 @@
     height:100%;
     color: navy;
     min-width:35px;
-    min-height:22px;
+    min-height:28px;
     cursor: pointer;  
 }
 .en-font-small {
@@ -145,10 +151,6 @@
     height:25px;
     text-align: center;
 }
-#viewType1Screen .en-draggable.en-drag {
-    cursor: default;
-    background-color: buttonface;
-}
 #viewType1Screen .en-droptarget {
     border-color: #efefef;
     border-width: 1px;
@@ -201,10 +203,6 @@
 
 #viewType4Screen .en-good-bad-buttons-content, #viewType4Screen .en-adjectives-nouns-buttons-content {
     margin-bottom: 10px;
-}
-#viewType4Screen .en-draggable.en-drag {
-    cursor: default;
-    background-color: buttonface;
 }
 #viewType4Screen .en-droptarget {
     vertical-align: top;
