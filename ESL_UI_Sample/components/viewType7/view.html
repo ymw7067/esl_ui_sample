@@ -1,38 +1,21 @@
 <style>
-.en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
-    border: none;
+#viewType7Screen .en-draggable.en-drag {
+    cursor: default;
+    background-color: buttonface;
 }
-
-.en-table-align-middle > tbody > tr > td, .en-table-align-middle > tbody > tr > th, .en-table-align-middle > tfoot > tr > td, .en-table-align-middle > tfoot > tr > th, .en-table-align-middle > thead > tr > td, .en-table-align-middle > thead > tr > th {
-     vertical-align: middle;
-}
-
-.en-table-nopadding>tbody>tr>td, .en-table-nopadding>tbody>tr>th, .en-table-nopadding>tfoot>tr>td, .en-table-nopadding>tfoot>tr>th, .en-table-nopadding>thead>tr>td, .en-table-nopadding>thead>tr>th {
-    padding: 0 5px;
-}
-
-.en-table-blank {
+#viewType7Screen .en-droptarget {
     border-bottom:2px solid gray;
-    height:100%;
-    color: navy;
-    min-width:35px;
-    min-height:22px
 }
-
-.en-font-small {
-    font-size:0.8em;
+#viewType7Screen .en-droptarget.en-draggable-target {
+    border-bottom:2px solid #000088;
 }
 </style>
-<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType7" data-show="app.viewType7.onShow" data-after-show="app.viewType7.afterShow" id="viewType7Screen" class="screen">
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType7" data-init="app.viewType7.onInit" data-show="app.viewType7.onShow" data-after-show="app.viewType7.afterShow" data-before-hide="app.viewType7.beforeHide" id="viewType7Screen" class="screen">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-
             <a data-role="backbutton" data-align="left">Back</a>
-
             <span data-bind="text: strings.viewType7.title"></span>
-
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
-
         </div>
     </header>
 
@@ -46,9 +29,8 @@
             </label>
         </div>
         <div class="en-line"></div>
-
         <div class="form-content-item en-list-item">
-            <table class="table table-bordered">
+            <table id="positiveForm" class="table table-bordered">
                 <tr>
                     <td class="active">
                         <b>(+) Positive Form</b>
@@ -71,19 +53,15 @@
                                 <td colspan="3">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="positive_form" en-word="subject"></div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="positive_form" en-word="modal verb (+)"></div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="positive_form" en-word="V1 (infinitive)"></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button data-role="button" class="km-small">modal verb (+)</button>
-                        <button data-role="button" class="km-small">V1 (infinitive)</button>
-                        <button data-role="button" class="km-small">subject</button>
-                    </td>
+                <tr class="en-positive-form-buttons">
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -106,7 +84,7 @@
                                 </td>
                                 <td style="padding-right:10px;">
                                     can't<br/>
-                                    <div class="en-table-blank en-font-small">&nbsp;</div>
+                                    <div class="en-table-blank en-droptarget" en-compare="negative_form" en-word="cannot"></div>
                                 </td>
                                 <td>play</td>
                             </tr>
@@ -114,24 +92,18 @@
                                 <td colspan="3">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
-                                <td><div class="en-table-blank en-font-small">&nbsp;</div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="negative_form" en-word="subject"></div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="negative_form" en-word="modal verb (-)"></div></td>
+                                <td><div class="en-table-blank en-font-small en-droptarget" en-compare="negative_form" en-word="V1 (infinitive)"></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button data-role="button" class="km-small">modal verb (-)</button>
-                        <button data-role="button" class="km-small">V1 (infinitive)</button>
-                        <button data-role="button" class="km-small">cannot</button>
-                        <button data-role="button" class="km-small">subject</button>
-                    </td>
+                <tr class="en-negative-form-buttons">
+                    <td></td>
                 </tr>
             </table>
         </div>
-
         <div class="form-content-item en-list-item">
             <table class="table table-bordered">
                 <tr>
@@ -156,19 +128,15 @@
                                 <td colspan="3">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">modal verb (-)</div></td>
-                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">subject</div></td>
-                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small">V1 (infinitive)</div></td>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small en-droptarget" en-compare="question_form" en-word="modal verb (+)"></div></td>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small en-droptarget" en-compare="question_form" en-word="subject"></div></td>
+                                <td style="vertical-align:bottom;" ><div class="en-table-blank en-font-small en-droptarget" en-compare="question_form" en-word="V1 (infinitive)"></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button data-role="button" class="km-small">modal verb (-)</button>
-                        <button data-role="button" class="km-small">V1 (infinitive)</button>
-                        <button data-role="button" class="km-small">subject</button>
-                    </td>
+                <tr class="en-question-form-buttons">
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -185,33 +153,49 @@
                         <table border="0" class="table en-table-borderless en-table-align-middle">
                             <tr>
                                 <td>
-                                    <div class="en-table-blank pull-left">Can</div><div class="pull-left">&nbsp; you go shopping?</div>
+                                    <div class="en-table-blank en-droptarget pull-left" en-compare="short_answers" en-word="can"></div>
+                                    <div class="pull-left">&nbsp; you go shopping?</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="pull-left">Yes, you &nbsp;</div><div class="en-table-blank pull-left">can</div><div class="pull-left">.</div>
+                                    <div class="pull-left">Yes, you &nbsp;</div>
+                                    <div class="en-table-blank en-droptarget pull-left" en-compare="short_answers" en-word="can"></div>
+                                    <div class="pull-left">.</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="pull-left">No, you &nbsp;</div><div class="en-table-blank pull-left"></div><div class="pull-left">.</div>
+                                    <div class="pull-left">No, you &nbsp;</div>
+                                    <div class="en-table-blank en-droptarget pull-left" en-compare="short_answers" en-word="can't"></div>
+                                    <div class="pull-left">.</div>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button data-role="button" class="km-small">can't</button>
-                        <button data-role="button" class="km-small">can</button>
-                        <button data-role="button" class="km-small">can</button>
-                    </td>
+                <tr class="en-short-answers-buttons">
+                    <td></td>
                 </tr>
             </table>
         </div>
-
-
     </div>
+
+    <!--template은 data-role=button이 작동이 되질 않는다. (그래서 km-widget km-button을 수동으로 클래스에 추가)-->
+    <script type="text/x-kendo-template" class="en-positive-form">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-compare="#:compare#">#:word#</button>
+    </script>
+
+    <script type="text/x-kendo-template" class="en-negative-form">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-compare="#:compare#">#:word#</button>
+    </script>
+
+    <script type="text/x-kendo-template" class="en-question-form">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-compare="#:compare#">#:word#</button>
+    </script>
+
+    <script type="text/x-kendo-template" class="en-short-answers">
+        <button data-role="button" class="km-widget km-button km-small en-draggable" en-compare="#:compare#">#:word#</button>
+    </script>
     <!-- END_CUSTOM_CODE_viewType7 -->
 </div>

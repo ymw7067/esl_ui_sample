@@ -1,97 +1,105 @@
 <style>
-.pcell2 {
+#viewType5Screen .pcell2 {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    float: left;
     padding-right: 10px;
 }
 
-.blank {
+#viewType5Screen .blank {
     border-bottom: 2px solid #888888;
     width: 130px;
     height: 30px;
     float: left;
 }
-.wrong {
-    color: red;
-}
 
-.dragover {
+#viewType5Screen mark, #viewType5Screen .en-table-blank, #viewType5Screen .en-table-word {
+    cursor: pointer;  
+}
+#viewType5Screen mark.en-no-mark {
+    background: transparent;
+    cursor: default;
+}
+#viewType5Screen .en-table-blank.selected {
+    border-bottom: 2px solid #0000ff;
+}
+#viewType5Screen .en-table-word.selected {
     color: blue;
 }
 </style>
-<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType5" data-init="app.viewType5.onInit" data-show="app.viewType5.onShow" data-after-show="app.viewType5.afterShow" id="viewType5Screen" class="screen">
+<div data-role="view" data-title="View" data-layout="main" data-model="app.viewType5" data-init="app.viewType5.onInit" data-show="app.viewType5.onShow" data-after-show="app.viewType5.afterShow" data-before-hide="app.viewType5.beforeHide" id="viewType5Screen" class="screen">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-
             <a data-role="backbutton" data-align="left">Back</a>
-
             <span data-bind="text: strings.viewType5.title"></span>
-
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
         </div>
-        <ul id="sticky_panel" style="display:none" class="form-content" data-role="listview" data-style="inset">
-            <li id="sticky_target" class="form-content-item">
-            </li>
-        </ul>
     </header>
-
 
     <!-- START_CUSTOM_CODE_viewType5 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-        <form>
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
-                    Read the text and match the highlighted words to these meanings:<br/>
-                    (Drag and drop) – <button data-role="button" data-icon="about" class="km-primary km-small">Vid instruction</button>
-                </li>
-                <li id="sticky_source" class="form-content-item">
-                    <div id="sticky_content">
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="dirty"></div><div style="float:left">= not clean</div>
-                        </div>
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="a wide variety"></div><div style="float:left">= many different types</div>
-                        </div>
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="popular"></div><div style="float:left">= many people like it</div>
-                        </div>
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="dangerous"></div><div style="float:left">= not safe</div>
-                        </div>
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="have fun"></div><div style="float:left">= enjoy yourself</div>
-                        </div>
-                        <div class="pcell2">
-                            <div class="blank droptarget" e-word="chill out"></div><div style="float:left">= relax</div>
-                        </div>
+    <form>
+        <div class="form-content en-list">
+            <div class="form-content-item en-list-item">
+                Read the text and match the highlighted words to these meanings:<br/>
+                (Drag and drop) – <button data-role="button" data-icon="about" class="km-primary km-small">Vid instruction</button>
+            </div>
+            <div class="en-line"></div>
+            <div class="en-sticky-source form-content-item en-list-item">
+                <div class="en-sticky-dummy" en-fixed="no"></div> 
+                <div class="en-sticky-content">
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="dirty"></div>
+                        <div class="en-table-word pull-left">= not clean</div>
                     </div>
-                </li>
-                <li class="form-content-item">
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="a wide variety"></div>
+                        <div class="en-table-word pull-left">= many different types</div>
+                    </div>
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="popular"></div>
+                        <div class="en-table-word pull-left">= many people like it</div>
+                    </div>
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="dangerous"></div>
+                        <div class="en-table-word pull-left">= not safe</div>
+                    </div>
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="have fun"></div>
+                        <div class="en-table-word pull-left">= enjoy yourself</div>
+                    </div>
+                    <div class="pcell2 clearfix">
+                        <div class="en-table-blank pull-left" style="width:130px;" en-word="chill out"></div>
+                        <div class="en-table-word pull-left">= relax</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+            <div class="form-content-item en-list-item">
 London is a beautiful city in the south of England.<br/><br/>
-It’s a very old city and you can visit lots of interesting places. There are beautiful parks like Hyde Park and Regent’s Park where you can play sports like football and tennis, or you can just <mark class="draggable">chill out</mark> with friends. You can go to the park every day but you can’t go late at night because the parks close at 10pm.<br/><br/>
+It’s a very old city and you can visit lots of interesting places. There are beautiful parks like Hyde Park and Regent’s Park where you can play sports like football and tennis, or you can just <mark>chill out</mark> with friends. You can go to the park every day but you can’t go late at night because the parks close at 10pm.<br/><br/>
 
-There are lots of swimming pools so you can go swimming inside but you can’t swim in the sea because there aren’t any beaches. You can take a boat on the river Thames but you can’t swim in the river because the water is <mark class="draggable">dirty</mark> and it’s <mark class="draggable">dangerous</mark>. You can go ice-skating inside but you can’t go skiing because there aren’t any mountains.<br/><br/>
+There are lots of swimming pools so you can go swimming inside but you can’t swim in the sea because there aren’t any beaches. You can take a boat on the river Thames but you can’t swim in the river because the water is <mark>dirty</mark> and it’s <mark>dangerous</mark>. You can go ice-skating inside but you can’t go skiing because there aren’t any mountains.<br/><br/>
 
-You can go shopping in the <mark class="draggable">popular</mark> West End area and there are lots of interesting museums, so you can visit them too. You can take a bus or the underground to the city centre, or if you have a lot of money you can take a taxi. You can take a bus in the day or night but you can’t take the underground all night because it closes at 12.30am.<br/><br/>
+You can go shopping in the <mark>popular</mark> West End area and there are lots of interesting museums, so you can visit them too. You can take a bus or the underground to the city centre, or if you have a lot of money you can take a taxi. You can take a bus in the day or night but you can’t take the underground all night because it closes at 12.30am.<br/><br/>
 
-In the evening you can go to the cinema or the theatre. After that you can have dinner in a nice restaurant. There are lots of restaurants, so you can eat <mark class="draggable">a wide variety</mark> of food from many different countries.<br/><br/>
+In the evening you can go to the cinema or the theatre. After that you can have dinner in a nice restaurant. There are lots of restaurants, so you can eat <mark>a wide variety</mark> of food from many different countries.<br/><br/>
 
-London is a very big city so you can always <mark class="draggable">have fun</mark> and meet new people.
+London is a very big city so you can always <mark>have fun</mark> and meet new people.
 Come to London. I’m sure you’ll like it!<br/><br/>
-                </li>
-                <li class="form-content-item">
-                    <span style="vertical-align: middle"><b>Listen and repeat</b></span> <img src="resources/icon_uk.png" style="width:32px; height:auto; vertical-align: middle"> <img src="resources/icon_usa.png" style="width:32px; height:auto; vertical-align: middle">
-                    <br/><br/>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">chill out</button>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">dirty</button>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">dangerous</button>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">popular</button>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">a wide variety</button>
-                    <button data-role="button" data-icon="sounds" class="km-primary km-small">have fun</button>
-                </li>
-            </ul>
-        </form>
+            </div>
+            <div class="en-line"></div>
+            <div class="form-content-item en-list-item">
+                <span style="vertical-align: middle"><b>Listen and repeat</b></span> <img src="resources/icon_uk.png" style="width:32px; height:auto; vertical-align: middle"> <img src="resources/icon_usa.png" style="width:32px; height:auto; vertical-align: middle">
+                <br/><br/>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">chill out</button>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">dirty</button>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">dangerous</button>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">popular</button>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">a wide variety</button>
+                <button data-role="button" data-icon="sounds" class="km-primary km-small">have fun</button>
+            </div>
+        </div>
+    </form>
     <!-- END_CUSTOM_CODE_viewType5 -->
 </div>

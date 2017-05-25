@@ -22,6 +22,29 @@
     color: #9da2a4;
 }
 
+
+.en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
+    border: none;
+}
+.en-table-align-middle > tbody > tr > td, .en-table-align-middle > tbody > tr > th, .en-table-align-middle > tfoot > tr > td, .en-table-align-middle > tfoot > tr > th, .en-table-align-middle > thead > tr > td, .en-table-align-middle > thead > tr > th {
+     vertical-align: middle;
+}
+.en-table-nopadding > tbody > tr > td, .en-table-nopadding > tbody > tr > th, .en-table-nopadding > tfoot > tr > td, .en-table-nopadding > tfoot > tr > th, .en-table-nopadding > thead > tr > td, .en-table-nopadding > thead > tr > th {
+    padding: 0 5px;
+}
+
+.en-table-blank {
+    border-bottom:2px solid gray;
+    height:100%;
+    color: navy;
+    min-width:35px;
+    min-height:22px
+}
+.en-font-small {
+    font-size:0.8em;
+}
+
+
 .en-table-simple-list {
     width: 100%;
     border-spacing: 0;

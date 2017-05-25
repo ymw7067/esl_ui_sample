@@ -1,8 +1,17 @@
 'use strict';
 
 app.viewType7 = kendo.observable({
-    onShow: function() {},
-    afterShow: function() {}
+    screen: null,
+    model: null,
+
+    // event
+    onShow: function(e) {},
+    afterShow: function(e) {},
+    beforeHide: function(e) {},
+
+    // method
+    initTemplate: function(e) {},
+    initDragdrop: function(e) {}
 });
 app.localization.registerView('viewType7');
 
@@ -10,3 +19,143 @@ app.localization.registerView('viewType7');
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
 // END_CUSTOM_CODE_viewType7
+(function(view) {
+    var
+    /// start global model properties
+
+    processImage = function(img) {
+        if (!img) {
+            var empty1x1png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=';
+            img = 'data:image/png;base64,' + empty1x1png;
+        }
+        return img;
+    },
+    /// end global model properties
+
+    model = kendo.observable({
+        /// start add model functions
+        positive_form_questions: [
+            { word: "modal verb (+)", compare: "positive_form" },
+            { word: "V1 (infinitive)", compare: "positive_form" },
+            { word: "subject", compare: "positive_form" }
+        ],
+        negative_form_questions: [
+            { word: "modal verb (-)", compare: "negative_form" },
+            { word: "V1 (infinitive)", compare: "negative_form" },
+            { word: "subject", compare: "negative_form" },
+            { word: "cannot", compare: "negative_form" }
+        ],
+        question_form_questions: [
+            { word: "modal verb (+)", compare: "question_form" },
+            { word: "V1 (infinitive)", compare: "question_form" },
+            { word: "subject", compare: "question_form" }
+        ],
+        short_answers_questions: [
+            { word: "can", compare: "short_answers" },
+            { word: "can", compare: "short_answers" },
+            { word: "can't", compare: "short_answers" }
+        ]
+        /// end add model functions
+    });
+
+    /// start form functions
+    view.set('onInit', function(e) {
+        // 초기화 루틴
+        view.screen = $("#viewType7Screen")
+
+        view.initTemplate(e);
+        view.initDragdrop(e);
+    });
+
+    view.set('onShow', function(e) {
+        view.set('addFormData', {
+            /// start add form data init
+            /// end add form data init
+        });
+        
+        // 재방문 할때를 위해 초기화 한다.
+        e.view.scroller.scrollTo(0,0);
+        $(".en-draggable", view.screen).show().parent().parent("tr:last-child").show();
+        $(".en-droptarget", view.screen).text("");
+    });
+
+    view.set('beforeHide', function(e) {
+        e.view.scroller.scrollTo(0,0);
+    });
+
+    view.set('model', model);
+    /// end form functions
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+    view.set('initTemplate', function (e) {
+        var template, randomArr, result;
+
+        template = kendo.template($(".en-positive-form").html());
+        randomArr = new kendo.data.ObservableArray( shuffle( view.model.positive_form_questions.slice(), { 'copy': true } ) );
+
+        result = kendo.render(template, randomArr);
+        $(".en-positive-form-buttons td", view.screen).html(result);
+
+        template = kendo.template($(".en-negative-form").html());
+        randomArr = new kendo.data.ObservableArray( shuffle( view.model.negative_form_questions.slice(), { 'copy': true } ) );
+
+        result = kendo.render(template, randomArr);
+        $(".en-negative-form-buttons td", view.screen).html(result);
+
+        template = kendo.template($(".en-question-form").html());
+        randomArr = new kendo.data.ObservableArray( shuffle( view.model.question_form_questions.slice(), { 'copy': true } ) );
+
+        result = kendo.render(template, randomArr);
+        $(".en-question-form-buttons td", view.screen).html(result);
+
+        template = kendo.template($(".en-short-answers").html());
+        randomArr = new kendo.data.ObservableArray( shuffle( view.model.short_answers_questions.slice(), { 'copy': true } ) );
+
+        result = kendo.render(template, randomArr);
+        $(".en-short-answers-buttons td", view.screen).html(result);
+    });
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+    view.set('initDragdrop', function (e) {
+        $(".en-draggable", view.screen).kendoDraggable({
+            hint: function(el) {
+                return el.clone();
+            },
+            dragstart: function(e) {
+                e.currentTarget.addClass("en-drag");
+            },
+            dragend: function(e) {
+                e.currentTarget.removeClass("en-drag");
+                $(".en-droptarget", view.screen).removeClass("en-draggable-target");
+            }
+        });
+
+        $(".en-droptarget", view.screen).kendoDropTarget({
+            dragenter: function(e) {
+                 e.dropTarget.addClass("en-draggable-target");
+            },
+            dragleave: function(e) {
+                e.dropTarget.removeClass("en-draggable-target");
+            },
+            drop: function(e) {
+                var word = e.draggable.element;
+                var answer = e.dropTarget;
+
+                if( word.attr("en-compare") != answer.attr("en-compare") ) {
+                    e.preventDefault();
+                    return;
+                }
+                if( word.text() != answer.attr("en-word") ) {
+                    e.preventDefault();
+                    return;
+                }
+
+                word.hide();
+                answer.text(word.text());
+                word.removeClass("en-drag");
+
+                if (word.parent().find('button:visible').length <= 0) word.parent().parent("tr:last-child").hide(); 
+            }
+        });
+    });
+})(app.viewType7);
