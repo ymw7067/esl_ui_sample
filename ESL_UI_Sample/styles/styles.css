@@ -42,7 +42,7 @@
     border-bottom:2px solid gray;
     height:100%;
     color: navy;
-    min-width:35px;
+    min-width:45px;
     min-height:28px;
     cursor: pointer;  
 }
@@ -231,4 +231,12 @@
 }
 #viewType7Screen .table {
     margin-bottom: 0;
+}
+
+#viewType8Screen .en-droptarget {
+    border-bottom:2px solid gray;
+    height: 25px;
+}
+#viewType8Screen .en-droptarget.en-draggable-target {
+    border-bottom:2px solid #000088;
 }
