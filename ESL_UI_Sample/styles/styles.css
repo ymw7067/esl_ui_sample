@@ -38,11 +38,23 @@
     height:100%;
     color: navy;
     min-width:35px;
-    min-height:22px
+    min-height:22px;
+    cursor: pointer;  
 }
 .en-font-small {
     font-size:0.8em;
 }
+
+.en-table-word {
+    cursor: pointer;  
+}
+.en-table-blank.selected {
+    border-bottom: 2px solid #0000ff;
+}
+.en-table-word.selected {
+    color: blue;
+}
+
 
 
 .en-table-simple-list {
