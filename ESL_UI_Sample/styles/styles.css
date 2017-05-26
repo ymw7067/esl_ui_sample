@@ -97,6 +97,29 @@
     color: navy;
 }
 
+.en-bottom-blank {
+    border-bottom:2px solid gray;
+    height:100%;
+    color: navy;
+    min-width:45px;
+    min-height:28px;
+    cursor: pointer;
+}
+.en-bottom-blank.selected {
+    border-bottom: 2px solid blue;
+}
+
+.en-cols-word {
+    cursor: pointer;
+}
+.en-cols-word.selected {
+    color: blue;
+}
+
+.en-font-small {
+    font-size:0.8em;
+}
+
 .en-draggable.en-drag {
     cursor: default;
     background-color: buttonface;
@@ -141,27 +164,4 @@
 }
 .table.en-table-mb {
     margin-bottom: 0;
-}
-
-.en-bottom-blank {
-    border-bottom:2px solid gray;
-    height:100%;
-    color: navy;
-    min-width:45px;
-    min-height:28px;
-    cursor: pointer;
-}
-.en-bottom-blank.selected {
-    border-bottom: 2px solid blue;
-}
-
-.en-cols-word {
-    cursor: pointer;
-}
-.en-cols-word.selected {
-    color: blue;
-}
-
-.en-font-small {
-    font-size:0.8em;
 }
