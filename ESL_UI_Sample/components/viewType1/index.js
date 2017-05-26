@@ -77,7 +77,7 @@ app.localization.registerView('viewType1');
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
         $(".en-draggable", view.screen).show();
-        $(".en-answer", view.screen).text("");
+        $(".en-dragdrop-answer", view.screen).text("");
     });
 
     view.set('beforeHide', function(e) {
@@ -145,9 +145,9 @@ app.localization.registerView('viewType1');
         result = kendo.render(template, randomArr);
         $(".en-sticky-content", view.screen).html(result);
 
-        template = kendo.template($(".en-list-template").html());
+        template = kendo.template($(".en-image-list-template").html());
         result = kendo.render(template, view.model.questions);
-        $(".en-list-view", view.screen).html(result);
+        $(".en-image-list-content", view.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -155,12 +155,12 @@ app.localization.registerView('viewType1');
         $(".en-image-panel img", view.screen).each(function(i, el) {
             $(el).load(function() {
                 if ($(el).height() > 120) {
-                    $(el).removeClass("en-fix-width");
-                    $(el).addClass("en-fix-height");
+                    $(el).removeClass("en-fixed-width");
+                    $(el).addClass("en-fixed-height");
                 }
                 if ($(el).width() > 150) {
-                    $(el).removeClass("en-fix-height");
-                    $(el).addClass("en-fix-width");
+                    $(el).removeClass("en-fixed-height");
+                    $(el).addClass("en-fixed-width");
                 }
             });
         });
@@ -177,20 +177,20 @@ app.localization.registerView('viewType1');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("en-drag");
-                $(".en-droptarget", view.screen).removeClass("en-draggable-target");
+                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
             }
         });
 
         $(".en-droptarget", view.screen).kendoDropTarget({
             dragenter: function(e) {
-                 e.dropTarget.addClass("en-draggable-target");
+                 e.dropTarget.addClass("en-droptarget-over");
             },
             dragleave: function(e) {
-                e.dropTarget.removeClass("en-draggable-target");
+                e.dropTarget.removeClass("en-droptarget-over");
             },
             drop: function(e) { 
                 var word = e.draggable.element;
-                var answer = e.dropTarget.find(".en-answer");
+                var answer = e.dropTarget.find(".en-dragdrop-answer");
 
                 if( word.text() != answer.attr("en-word") ) {
                     e.preventDefault();

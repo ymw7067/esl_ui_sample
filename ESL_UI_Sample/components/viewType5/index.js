@@ -57,8 +57,8 @@ app.localization.registerView('viewType5');
         // 재방문 할때를 위해 초기화 한다.
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
-        $(".en-table-blank", view.screen).text("");
-        $(".en-table-blank, .en-table-word", view.screen).removeClass("selected");
+        $(".en-bottom-blank", view.screen).text("");
+        $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
     });
 
     view.set('beforeHide', function(e) {
@@ -68,31 +68,31 @@ app.localization.registerView('viewType5');
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     view.set('selectedClick', function(e) {
-        $(".en-table-blank", view.screen).click(function(e) {
+        $(".en-bottom-blank", view.screen).click(function(e) {
             if ($(this).text() != "") {
                 return;
             }
             if ($("#sticky-panel").is(':visible')) {
-                $(".en-table-blank, .en-table-word", "#sticky-panel").removeClass("selected");
+                $(".en-bottom-blank, .en-cols-word", "#sticky-panel").removeClass("selected");
                 $(this, "#sticky-panel").addClass("selected");
                 $(this, "#sticky-panel").next().addClass("selected");
             } else {
-                $(".en-table-blank, .en-table-word", view.screen).removeClass("selected");
+                $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
                 $(this).addClass("selected");
                 $(this).next().addClass("selected");
             }
         });
 
-        $(".en-table-word", view.screen).click(function(e) {
+        $(".en-cols-word", view.screen).click(function(e) {
             if ($(this).prev().text() != "") {
                 return;
             }
             if ($("#sticky-panel").is(':visible')) {
-                $(".en-table-blank, .en-table-word", "#sticky-panel").removeClass("selected");
+                $(".en-bottom-blank, .en-cols-word", "#sticky-panel").removeClass("selected");
                 $(this, "#sticky-panel").prev().addClass("selected");
                 $(this, "#sticky-panel").addClass("selected");
             } else {
-                $(".en-table-blank, .en-table-word", view.screen).removeClass("selected");
+                $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
                 $(this).prev().addClass("selected");
                 $(this).addClass("selected");
             }
@@ -103,20 +103,20 @@ app.localization.registerView('viewType5');
                 return;
             }
             if ($("#sticky-panel").is(':visible')) {
-                if ($(this).text() != $(".en-table-blank.selected", "#sticky-panel").attr("en-word")) {
+                if ($(this).text() != $(".en-bottom-blank.selected", "#sticky-panel").attr("en-word")) {
                     alert("정답아님 !!")
                     return;
                 }
-                $(".en-table-blank.selected", "#sticky-panel").text($(this).text());
-                $(".en-table-blank, .en-table-word", "#sticky-panel").removeClass("selected");
+                $(".en-bottom-blank.selected", "#sticky-panel").text($(this).text());
+                $(".en-bottom-blank, .en-cols-word", "#sticky-panel").removeClass("selected");
                 //$(this).addClass("en-no-mark");
             } else {
-                if ($(this).text() != $(".en-table-blank.selected", view.screen).attr("en-word")) {
+                if ($(this).text() != $(".en-bottom-blank.selected", view.screen).attr("en-word")) {
                     alert("정답아님 !!")
                     return;
                 }
-                $(".en-table-blank.selected", view.screen).text($(this).text());
-                $(".en-table-blank, .en-table-word", view.screen).removeClass("selected");
+                $(".en-bottom-blank.selected", view.screen).text($(this).text());
+                $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
                 //$(this).addClass("en-no-mark");
             }
         });
