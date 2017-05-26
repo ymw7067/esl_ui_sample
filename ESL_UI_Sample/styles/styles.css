@@ -1,3 +1,16 @@
+.en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
+    border: none;
+}
+.en-table-align-middle > tbody > tr > td, .en-table-align-middle > tbody > tr > th, .en-table-align-middle > tfoot > tr > td, .en-table-align-middle > tfoot > tr > th, .en-table-align-middle > thead > tr > td, .en-table-align-middle > thead > tr > th {
+     vertical-align: middle;
+}
+.en-table-nopadding > tbody > tr > td, .en-table-nopadding > tbody > tr > th, .en-table-nopadding > tfoot > tr > td, .en-table-nopadding > tfoot > tr > th, .en-table-nopadding > thead > tr > td, .en-table-nopadding > thead > tr > th {
+    padding: 0 5px;
+}
+.table.en-table-mb {
+    margin-bottom: 0;
+}
+
 .en-line {
     border-radius: 0px;
     border-top: 1px solid #dadada;
@@ -151,17 +164,4 @@
 .en-blank-droptarget.en-droptarget-over {
     border: none;
     border-bottom:2px solid #000088;
-}
-
-.en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
-    border: none;
-}
-.en-table-align-middle > tbody > tr > td, .en-table-align-middle > tbody > tr > th, .en-table-align-middle > tfoot > tr > td, .en-table-align-middle > tfoot > tr > th, .en-table-align-middle > thead > tr > td, .en-table-align-middle > thead > tr > th {
-     vertical-align: middle;
-}
-.en-table-nopadding > tbody > tr > td, .en-table-nopadding > tbody > tr > th, .en-table-nopadding > tfoot > tr > td, .en-table-nopadding > tfoot > tr > th, .en-table-nopadding > thead > tr > td, .en-table-nopadding > thead > tr > th {
-    padding: 0 5px;
-}
-.table.en-table-mb {
-    margin-bottom: 0;
 }
