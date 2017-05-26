@@ -92,11 +92,30 @@
 .en-word-content .en-buttongroup-item.km-buttongroup {
     margin: auto;
 }
-.en-buttongroup-item .km-button.km-state-active .km-text {
+.en-buttongroup-item .km-text {
     -webkit-text-fill-color: initial;
     color: navy;
 }
 
+
+
+#viewType7Screen .table {
+    margin-bottom: 0;
+}
+#viewType7Screen .en-droptarget {
+    border-bottom: 2px solid gray;
+}
+#viewType7Screen .en-droptarget.en-draggable-target {
+    border-bottom: 2px solid #000088;
+}
+
+#viewType8Screen .en-droptarget {
+    border-bottom:2px solid gray;
+    height: 25px;
+}
+#viewType8Screen .en-droptarget.en-draggable-target {
+    border-bottom:2px solid #000088;
+}
 
 
 
@@ -111,24 +130,25 @@
 .en-droptarget.en-droptarget-over {
     border: 2px solid #000088;
 }
-
-
-
-
-
-/*
 .en-list-droptarget {
     vertical-align: top;
     min-height: 150px;
     border-color: transparent;
 }
 .en-list-droptarget.en-droptarget-over {
-    padding-left: 8px;
+    border: 2px solid #000088;
+    margin-left: -2px;
+    margin-right: -2px;
+    margin-top: -1px;
+    padding-left: 1px;
+    padding-top: -3px;
 }
-.en-list-droptarget.en-margin {
-    margin-left: -9px;
-    margin-right: -9px;
-}
+
+
+
+
+
+/*
 .en-bottom-droptarget {
     border: none;
     border-bottom:2px solid gray;
@@ -206,51 +226,6 @@
 
 .en-font-small {
     font-size:0.8em;
-}
-
-
-
-
-#viewType4Screen .en-good-bad-buttons-content, #viewType4Screen .en-adjectives-nouns-buttons-content {
-    margin-bottom: 10px;
-}
-#viewType4Screen .en-droptarget {
-    vertical-align: top;
-    min-height: 150px;
-    border: 1px solid transparent;
-}
-#viewType4Screen .en-droptarget.en-draggable-target {
-    margin-left: -9px;
-    margin-right: -9px;
-    padding-left: 8px;
-    border-color: #000088;
-    border-width: 2px;
-}
-
-#viewType5Screen mark {
-    cursor: pointer;  
-}
-#viewType5Screen mark.en-no-mark {
-    background: transparent;
-    cursor: default;
-}
-
-#viewType7Screen .table {
-    margin-bottom: 0;
-}
-#viewType7Screen .en-droptarget {
-    border-bottom: 2px solid gray;
-}
-#viewType7Screen .en-droptarget.en-draggable-target {
-    border-bottom: 2px solid #000088;
-}
-
-#viewType8Screen .en-droptarget {
-    border-bottom:2px solid gray;
-    height: 25px;
-}
-#viewType8Screen .en-droptarget.en-draggable-target {
-    border-bottom:2px solid #000088;
 }
 
 

@@ -117,16 +117,16 @@ app.localization.registerView('viewType4');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("en-drag");
-                $(".en-droptarget", view.screen).removeClass("en-draggable-target");
+                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
             }
         });
 
         $(".en-droptarget", view.screen).kendoDropTarget({
             dragenter: function(e) {
-                 e.dropTarget.addClass("en-draggable-target");
+                 e.dropTarget.addClass("en-droptarget-over");
             },
             dragleave: function(e) {
-                e.dropTarget.removeClass("en-draggable-target");
+                e.dropTarget.removeClass("en-droptarget-over");
             },
             drop: function(e) {
                 var word = e.draggable.element;

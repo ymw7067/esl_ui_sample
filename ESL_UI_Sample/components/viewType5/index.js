@@ -99,25 +99,26 @@ app.localization.registerView('viewType5');
         });
 
         $("mark", view.screen).click(function(e) {
-            if ($(this).hasClass("en-no-mark")) {
-                return;
-            }
             if ($("#sticky-panel").is(':visible')) {
+                if (!$(".en-bottom-blank, .en-cols-word", "#sticky-panel").hasClass("selected")) {
+                    return false;
+                }
                 if ($(this).text() != $(".en-bottom-blank.selected", "#sticky-panel").attr("en-word")) {
                     alert("정답아님 !!")
                     return;
                 }
                 $(".en-bottom-blank.selected", "#sticky-panel").text($(this).text());
                 $(".en-bottom-blank, .en-cols-word", "#sticky-panel").removeClass("selected");
-                //$(this).addClass("en-no-mark");
             } else {
+                if (!$(".en-bottom-blank, .en-cols-word", view.screen).hasClass("selected")) {
+                    return false;
+                }
                 if ($(this).text() != $(".en-bottom-blank.selected", view.screen).attr("en-word")) {
                     alert("정답아님 !!")
                     return;
                 }
                 $(".en-bottom-blank.selected", view.screen).text($(this).text());
                 $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
-                //$(this).addClass("en-no-mark");
             }
         });
     });
