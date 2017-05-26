@@ -97,29 +97,6 @@
     color: navy;
 }
 
-
-
-#viewType7Screen .table {
-    margin-bottom: 0;
-}
-#viewType7Screen .en-droptarget {
-    border-bottom: 2px solid gray;
-}
-#viewType7Screen .en-droptarget.en-draggable-target {
-    border-bottom: 2px solid #000088;
-}
-
-#viewType8Screen .en-droptarget {
-    border-bottom:2px solid gray;
-    height: 25px;
-}
-#viewType8Screen .en-droptarget.en-draggable-target {
-    border-bottom:2px solid #000088;
-}
-
-
-
-
 .en-draggable.en-drag {
     cursor: default;
     background-color: buttonface;
@@ -143,57 +120,15 @@
     padding-left: 1px;
     padding-top: -3px;
 }
-
-
-
-
-
-/*
-.en-bottom-droptarget {
+.en-blank-droptarget {
     border: none;
     border-bottom:2px solid gray;
     height: 25px;
 }
-.en-bottom-droptarget.en-droptarget-over {
-    border-color: #000088;
-}
-
-
-#viewType1Screen .en-droptarget {
-    border-color: #efefef;
-    border-width: 1px;
-}
-#viewType4Screen .en-droptarget {
-    vertical-align: top;
-    min-height: 150px;
-    border: 1px solid transparent;
-}
-#viewType7Screen .en-droptarget {
-    border-bottom: 2px solid gray;
-}
-#viewType8Screen .en-droptarget {
-    border-bottom:2px solid gray;
-    height: 25px;
-}
-
-#viewType1Screen .en-droptarget.en-draggable-target {
-    border-color: #000088;
-    border-width: 2px;
-}
-#viewType4Screen .en-droptarget.en-draggable-target {
-    margin-left: -9px;
-    margin-right: -9px;
-    padding-left: 8px;
-    border-color: #000088;
-    border-width: 2px;
-}
-#viewType7Screen .en-droptarget.en-draggable-target {
-    border-bottom: 2px solid #000088;
-}
-#viewType8Screen .en-droptarget.en-draggable-target {
+.en-blank-droptarget.en-droptarget-over {
+    border: none;
     border-bottom:2px solid #000088;
 }
-*/
 
 .en-table-borderless > tbody > tr > td, .en-table-borderless > tbody > tr > th, .en-table-borderless > tfoot > tr > td, .en-table-borderless > tfoot > tr > th, .en-table-borderless > thead > tr > td, .en-table-borderless > thead > tr > th {
     border: none;
@@ -203,6 +138,9 @@
 }
 .en-table-nopadding > tbody > tr > td, .en-table-nopadding > tbody > tr > th, .en-table-nopadding > tfoot > tr > td, .en-table-nopadding > tfoot > tr > th, .en-table-nopadding > thead > tr > td, .en-table-nopadding > thead > tr > th {
     padding: 0 5px;
+}
+.table.en-table-mb {
+    margin-bottom: 0;
 }
 
 .en-bottom-blank {
@@ -226,59 +164,4 @@
 
 .en-font-small {
     font-size:0.8em;
-}
-
-
-.en-table-simple-list {
-    width: 100%;
-    border-spacing: 0;
-    border-top: 1px solid #dadada;
-    border-left: 1px solid #dadada;
-    table-layout: fixed;
-}
-.en-table-simple-list thead th {
-    text-align: center;
-    border-right: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;
-    background-color: #eeeeee;
-    line-height: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.en-table-simple-list thead td {
-    text-align: left;
-    padding: 0 10px;
-    border-right: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;
-    line-height: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.en-table-simple-list tbody th {
-    text-align: center;
-    border-right: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;
-    background-color: #f0f0f0;
-    line-height: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.en-table-simple-list tbody td {
-    text-align: left;
-    padding: 0 10px;
-    border-right: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;
-    line-height: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.en-table-simple-list tbody td.center {
-    text-align: center;
-}
-.en-table-simple-list tbody td.numeric {
-    text-align: right;
 }
