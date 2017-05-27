@@ -133,7 +133,7 @@ app.localization.registerView('viewType7');
                 return;
             }
             if ($(this).text() != selected.attr("en-word")) {
-                alert("정답아님 !!")
+                alert("Wrong answer !!");
                 return;
             }
             $(this, view.screen).hide();

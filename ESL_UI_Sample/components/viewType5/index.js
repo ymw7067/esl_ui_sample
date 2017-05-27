@@ -40,7 +40,7 @@ app.localization.registerView('viewType5');
     /// start form functions
     view.set('onInit', function(e) {
         // 초기화 루틴
-        view.screen = $("#viewType5Screen")
+        view.screen = $("#viewType5Screen");
 
         view.selectedClick(e);
     });
@@ -104,7 +104,7 @@ app.localization.registerView('viewType5');
                     return false;
                 }
                 if ($(this).text() != $(".en-bottom-blank.selected", "#sticky-panel").attr("en-word")) {
-                    alert("정답아님 !!")
+                    alert("Wrong answer !!");
                     return;
                 }
                 $(".en-bottom-blank.selected", "#sticky-panel").text($(this).text());
@@ -114,7 +114,7 @@ app.localization.registerView('viewType5');
                     return false;
                 }
                 if ($(this).text() != $(".en-bottom-blank.selected", view.screen).attr("en-word")) {
-                    alert("정답아님 !!")
+                    alert("Wrong answer !!");
                     return;
                 }
                 $(".en-bottom-blank.selected", view.screen).text($(this).text());
