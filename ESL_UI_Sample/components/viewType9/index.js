@@ -71,7 +71,7 @@ app.localization.registerView('viewType9');
         view.vtop = 0;
         e.view.scroller.scrollTo(0,0);
         $(".en-draggable", view.screen).show();
-        $(".en-dragdrop-answer", view.screen).text("");
+        $(".en-droptarget", view.screen).text("");
     });
 
     view.set('beforeHide', function(e) {
@@ -142,7 +142,7 @@ app.localization.registerView('viewType9');
     view.set('initDragdrop', function (e) {
         $(".en-draggable", view.screen).kendoDraggable({
             hint: function(el) {
-                return el.clone();
+                return el.clone().addClass("en-dragdrop-clone");
             },
             dragstart: function(e) {
                 e.currentTarget.addClass("en-text-drag");
