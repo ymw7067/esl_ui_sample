@@ -11,7 +11,7 @@ app.viewType7 = kendo.observable({
 
     // method
     initTemplate: function(e) {},
-    initDragdrop: function(e) {}
+    selectedClick: function(e) {}
 });
 app.localization.registerView('viewType7');
 
@@ -64,7 +64,7 @@ app.localization.registerView('viewType7');
         view.screen = $("#viewType7Screen")
 
         view.initTemplate(e);
-        view.initDragdrop(e);
+        view.selectedClick(e);
     });
 
     view.set('onShow', function(e) {
@@ -75,8 +75,9 @@ app.localization.registerView('viewType7');
         
         // 재방문 할때를 위해 초기화 한다.
         e.view.scroller.scrollTo(0,0);
-        $(".en-draggable", view.screen).show().parent().parent("tr:last-child").show();
-        $(".en-droptarget", view.screen).text("");
+        $(".en-button", view.screen).show().parent().parent("tr:last-child").show();
+        $(".en-bottom-blank", view.screen).text("");
+        $(".en-bottom-blank", view.screen).removeClass("selected");
     });
 
     view.set('beforeHide', function(e) {
@@ -90,25 +91,25 @@ app.localization.registerView('viewType7');
     view.set('initTemplate', function (e) {
         var template, randomArr, result;
 
-        template = kendo.template($(".en-positive-form").html());
+        template = kendo.template($(".en-positive-form-template").html());
         randomArr = new kendo.data.ObservableArray( shuffle( view.model.positive_form_questions.slice(), { 'copy': true } ) );
 
         result = kendo.render(template, randomArr);
         $(".en-positive-form-buttons td", view.screen).html(result);
 
-        template = kendo.template($(".en-negative-form").html());
+        template = kendo.template($(".en-negative-form-template").html());
         randomArr = new kendo.data.ObservableArray( shuffle( view.model.negative_form_questions.slice(), { 'copy': true } ) );
 
         result = kendo.render(template, randomArr);
         $(".en-negative-form-buttons td", view.screen).html(result);
 
-        template = kendo.template($(".en-question-form").html());
+        template = kendo.template($(".en-question-form-template").html());
         randomArr = new kendo.data.ObservableArray( shuffle( view.model.question_form_questions.slice(), { 'copy': true } ) );
 
         result = kendo.render(template, randomArr);
         $(".en-question-form-buttons td", view.screen).html(result);
 
-        template = kendo.template($(".en-short-answers").html());
+        template = kendo.template($(".en-short-answers-template").html());
         randomArr = new kendo.data.ObservableArray( shuffle( view.model.short_answers_questions.slice(), { 'copy': true } ) );
 
         result = kendo.render(template, randomArr);
@@ -116,46 +117,30 @@ app.localization.registerView('viewType7');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initDragdrop', function (e) {
-        $(".en-draggable", view.screen).kendoDraggable({
-            hint: function(el) {
-                return el.clone();
-            },
-            dragstart: function(e) {
-                e.currentTarget.addClass("en-drag");
-            },
-            dragend: function(e) {
-                e.currentTarget.removeClass("en-drag");
-                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
+    view.set('selectedClick', function(e) {
+        $(".en-bottom-blank", view.screen).click(function(e) {
+            if ($(this).text() != "") {
+                return;
             }
+            $(this).parentsUntil("table").find(".selected").removeClass("selected");
+            $(this).addClass("selected");
         });
 
-        $(".en-droptarget", view.screen).kendoDropTarget({
-            dragenter: function(e) {
-                 e.dropTarget.addClass("en-droptarget-over");
-            },
-            dragleave: function(e) {
-                e.dropTarget.removeClass("en-droptarget-over");
-            },
-            drop: function(e) {
-                var word = e.draggable.element;
-                var answer = e.dropTarget;
+        $(".en-button", view.screen).click(function(e) {
+            var selected = $(this).parentsUntil("table").find(".selected");
 
-                if( word.attr("en-compare") != answer.attr("en-compare") ) {
-                    e.preventDefault();
-                    return;
-                }
-                if( word.text() != answer.attr("en-word") ) {
-                    e.preventDefault();
-                    return;
-                }
-
-                word.hide();
-                answer.text(word.text());
-                word.removeClass("en-drag");
-
-                if (word.parent().find('button:visible').length <= 0) word.parent().parent("tr:last-child").hide(); 
+            if (!selected.length) {
+                return;
             }
+            if ($(this).text() != selected.attr("en-word")) {
+                alert("정답아님 !!")
+                return;
+            }
+            $(this, view.screen).hide();
+            selected.text($(this).text());
+            selected.removeClass("selected");
+
+            if ($(this).parent().find('button:visible').length <= 0) $(this).parent().parent("tr:last-child").hide();
         });
     });
 })(app.viewType7);
