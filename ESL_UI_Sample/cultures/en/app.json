@@ -36,7 +36,7 @@
     "title": "Finding useful language in a text"
   },
   "viewType7": {
-    "title": "Form table (drag and drop)",
+    "title": "Form table",
     "viewType1Model": {
       "editableListForm1": {
         "textInstruction": {
@@ -66,5 +66,14 @@
         }
       }
     }
+  },
+  "viewType12": {
+    "title": "Listen and repeat"
+  },
+  "viewType13": {
+    "title": "Colorized word stress & Phonetic matching"
+  },
+  "viewType14": {
+    "title": "Sentence stress"
   }
 }

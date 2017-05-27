@@ -1,3 +1,50 @@
+<style>
+    .en-box {
+        border: 1px solid #dadada;
+        width: 100%;
+        position:relative;
+    }
+
+    .en-clinebox1 {
+        background-color: #FC0019;
+        min-height:135px;;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .en-clinebox2 {
+        background-color: #F49650;
+        min-height:135px;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .en-clinebox3 {
+        background-color: #9ABC61;
+        min-height:135px;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .en-vline {
+        border-left: 1px solid #dadada;
+    }
+
+    .en-clinebox-answer {
+        background-color: #ffffff;
+        text-align: center;
+        padding:5px 5px;
+        margin:10px 0;
+        border-radius: 5px;
+        min-height:36px;
+    }
+
+    .en-valign {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        /* vendor prefixes omitted due to brevity */
+    }
+
+</style>
 <div data-role="view" data-title="View" data-layout="main" data-model="app.viewType9" data-show="app.viewType9.onShow" data-after-show="app.viewType9.afterShow" id="viewType9Screen" class="screen">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
@@ -14,6 +61,56 @@
 
     <!-- START_CUSTOM_CODE_viewType9 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-
+    <div class="form-content en-list">
+        <div class="form-content-item en-list-item">
+            <label id="textInstructionField" class="km-label-above field field--text-block">
+                <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
+                <div class="textBlock field__content">Decide if these accidents are serious and put them on the cline  (drag and drop)</div>
+            </label>
+        </div>
+        <div class="en-line"></div>
+        <div class="form-content-item en-list-item">
+            <div>I fell off my bike</div>
+            <div>I bumped into my colleague</div>
+            <div>I crashed my car at 80 kph</div>
+            <div>I tripped over the cat</div>
+            <div>I crashed my car at 20 kph </div>
+            <div>I slipped in the shower</div>
+        </div>
+        <div class="en-line"></div>
+        <div class="form-content-item en-list-item">
+            <div class="en-box">
+                <div class="en-vline" style="position:absolute; top:0; left:50%; height:100%"></div>
+                <div class="en-clinebox1">
+                    <div style="">Serious</div>
+                    <div style="position:relative; width:100%">
+                        <div style="position:absolute; left:50%; width:70%">
+                            <div  class="en-clinebox-answer" style="position:relative; left:-50%; min-width:250px;">I crashed my car at 80 kph</div>
+                            <div  class="en-clinebox-answer" style="position:relative; left:-50%; min-width:250px;">I fell off my bike </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="en-line"></div>
+                <div class="en-clinebox2">
+                    <div style="">Quite serious</div>
+                    <div style="position:relative; width:100%; height:100%">
+                        <div class="en-clinebox-answer pull-left" style="width:45%;">I slipped in the shower</div>
+                        <div class="pull-left" style="width:10%; height:30px; border-bottom:1px solid #dadada;"></div>
+                        <div class="en-clinebox-answer pull-left" style="width:45%; min-height:36px">I crashed my car at 20 kph </div>
+                    </div>
+                </div>
+                <div class="en-line"></div>
+                <div class="en-clinebox3">
+                    <div style="">Not serious</div>
+                    <div style="position:relative; width:100%">
+                        <div style="position:absolute; left:50%; width:70%">
+                            <div  class="en-clinebox-answer" style="position:relative; left:-50%; min-width:250px;">I tripped over the cat</div>
+                            <div  class="en-clinebox-answer" style="position:relative; left:-50%; min-width:250px;">I bumped into my colleague</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- END_CUSTOM_CODE_viewType9 -->
 </div>

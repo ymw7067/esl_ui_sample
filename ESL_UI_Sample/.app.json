@@ -156,6 +156,27 @@
       "title": "Match language to timelines",
       "addToNavigation": true,
       "icon": "edit"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "viewType12",
+      "components": [],
+      "title": "Listen and repeat",
+      "addToNavigation": false
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "viewType13",
+      "components": [],
+      "title": "Colorized word stress & Phonetic matching",
+      "addToNavigation": false
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "viewType14",
+      "components": [],
+      "title": "•\tSentence stress",
+      "addToNavigation": false
     }
   ],
   "dataProviders": [],

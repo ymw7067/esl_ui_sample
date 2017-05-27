@@ -22,6 +22,9 @@
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/viewType14/index.js"></script>
+    <script src="components/viewType13/index.js"></script>
+    <script src="components/viewType12/index.js"></script>
     <script src="components/viewType11/index.js"></script>
     <script src="components/viewType10/index.js"></script>
     <script src="components/viewType9/index.js"></script>
@@ -67,9 +70,17 @@
                     <li><a href="components/viewType6/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType6.title"></span></a></li>
                     <li><a href="components/viewType7/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType7.title"></span></a></li>
                     <li><a href="components/viewType8/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType8.title"></span></a></li>
-                    <li><a href="components/viewType9/view.html" data-icon="edit"><span style="color:#aaaaaa" class="navigation-link-text" data-bind="text: strings.viewType9.title"></span></a></li>
-                    <li><a href="components/viewType10/view.html" data-icon="edit"><span style="color:#aaaaaa" class="navigation-link-text" data-bind="text: strings.viewType10.title"></span></a></li>
-                    <li><a href="components/viewType11/view.html" data-icon="edit"><span style="color:#aaaaaa" class="navigation-link-text" data-bind="text: strings.viewType11.title"></span></a></li>
+                    <li><a href="components/viewType9/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType9.title"></span></a></li>
+                    <li><a href="#" data-icon="edit"><span style="color:#aaaaaa" class="navigation-link-text" data-bind="text: strings.viewType10.title"></span></a></li>
+                    <li><a href="#" data-icon="edit"><span style="color:#aaaaaa" class="navigation-link-text" data-bind="text: strings.viewType11.title"></span></a></li>
+                </ul>
+            </li>
+            <li>
+                2. Phonology
+                <ul id="navigation-container" data-role="listview" data-style="inset">
+                    <li><a href="components/viewType12/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType12.title"></span></a></li>
+                    <li><a href="components/viewType13/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType13.title"></span></a></li>
+                    <li><a href="components/viewType14/view.html" data-icon="edit"><span class="navigation-link-text" data-bind="text: strings.viewType14.title"></span></a></li>
                 </ul>
             </li>
         </ul>
@@ -82,7 +93,7 @@
 
     <!-- START_CUSTOM_CODE_kendoUiMobileApp -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-    <div id="sticky-panel" style="display:none; background:white; position:absolute; width:100%; z-index:50000"> 
+    <div id="sticky-panel" style="display:none; background:white; position:absolute; width:100%; z-index:50000">
         <div class="form-content en-list">
             <div class="form-content-item en-list-item"></div>
         </div>

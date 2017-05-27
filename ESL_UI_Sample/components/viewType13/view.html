@@ -1,0 +1,133 @@
+<style>
+    .en-stress-text {
+        font-size:2.5em;
+        line-height:1em;
+    }
+    .en-phonetic-text {
+        font-size:1.5em;
+        line-height:1em;
+        text-align:center;
+        color:gray;
+    }
+    .en-stress {
+        color:red;
+    }
+    .en-stress2 {
+        color:orange;
+    }
+</style>
+<div data-role="view" data-title="View" data-layout="main-nonav" data-model="app.viewType13" data-show="app.viewType13.onShow" data-after-show="app.viewType13.afterShow" id="viewType13Screen" class="screen">
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <a data-role="backbutton" data-align="left">Back</a>
+
+            <span data-bind="text: strings.viewType13.title"></span>
+
+            <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
+
+        </div>
+    </header>
+
+
+    <!-- START_CUSTOM_CODE_viewType13 -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+    <form>
+        <div class="form-content en-list">
+            <div class="form-content-item en-list-item">
+                <label id="textInstructionField" class="km-label-above field field--text-block">
+                    <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
+                    <div class="textBlock field__content">Listen to the words and click on the main stress</div>
+                </label>
+            </div>
+            <div class="en-line"></div>
+
+            <div class="form-content-item en-list-item clearfix">
+                <div class="pull-left">
+                    <div class="pull-left" style="margin-right:20px;">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">ɑɪ</div>
+                        <div class="en-stress-text">kind</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+
+            <div class="form-content-item en-list-item clearfix">
+                <div class="pull-left">
+                    <div class="pull-left" style="margin-right:20px;">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">ɛɪ</div>
+                        <div class="en-stress-text">brave</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+            
+            <div class="form-content-item en-list-item clearfix">
+                <div class="pull-left">
+                    <div class="pull-left" style="margin-right:20px;">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div class="en-stress-text">spoiled</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+
+            <div class="form-content-item en-list-item clearfix">
+                <div class="pull-left">
+                    <div class="pull-left" style="margin-right:20px;">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">d͡ʒ</div>
+                        <div class="en-stress-text">ge</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">ə</div>
+                        <div class="en-stress-text en-stress">ner</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div class="en-stress-text">ous</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+
+            <div class="form-content-item en-list-item clearfix">
+                <div class="pull-left">
+                    <div class="pull-left" style="margin-right:20px;">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div class="en-stress-text">i</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">&nbsp;</div>
+                        <div class="en-stress-text en-stress" en-word="en-stress">di</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="en-phonetic-text">ə</div>
+                        <div class="en-stress-text en-stress2" en-word="en-stress2">ot</div>
+                    </div>
+                </div>
+            </div>
+            <div class="en-line"></div>
+        </div>
+    </form>
+    <!-- END_CUSTOM_CODE_viewType13 -->
+</div>
