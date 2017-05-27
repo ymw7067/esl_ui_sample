@@ -15,6 +15,9 @@
     border-radius: 0px;
     border-top: 1px solid #dadada;
 }
+.en-vline {
+    border-left: 1px solid #dadada;
+}
 
 .en-list {
     padding: 0;
@@ -45,7 +48,7 @@
     height: 150px;
     border: 1px solid #dadada;
     padding: 0;
-    margin: 0 0 10px 5px;
+    margin: 0 0 10px 10px;
 }
 
 .en-image-panel {
@@ -133,9 +136,40 @@
     font-size:0.8em;
 }
 
+.en-question-box {
+    border: 1px solid #dadada;
+    width: 100%;
+    position:relative;
+}
+.en-clinebox {
+    background-color: #FC0019;
+    min-height:135px;;
+    width: 100%;
+    padding: 0 10px;
+}
+.en-clinebox-answer {
+    background-color: #ffffff;
+    text-align: center;
+    padding:5px 5px;
+    margin:10px 0;
+    border-radius: 5px;
+    min-height:36px;
+}
+.en-valign {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* vendor prefixes omitted due to brevity */
+}
+
 .en-draggable.en-drag {
     cursor: default;
     background-color: buttonface;
+    z-index: 10000;
+}
+.en-draggable.en-text-drag {
+    background-color: transparent;
+    z-index: 10000;
 }
 .en-droptarget {
     border: 1px solid #dadada;
