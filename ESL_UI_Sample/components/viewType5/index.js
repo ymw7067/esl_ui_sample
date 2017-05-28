@@ -99,27 +99,21 @@ app.localization.registerView('viewType5');
         });
 
         $("mark", view.screen).click(function(e) {
-            if ($("#sticky-panel").is(':visible')) {
-                if (!$(".en-bottom-blank, .en-cols-word", "#sticky-panel").hasClass("selected")) {
-                    return false;
-                }
-                if ($(this).text() != $(".en-bottom-blank.selected", "#sticky-panel").attr("en-word")) {
-                    alert("Wrong answer !!");
-                    return;
-                }
-                $(".en-bottom-blank.selected", "#sticky-panel").text($(this).text());
-                $(".en-bottom-blank, .en-cols-word", "#sticky-panel").removeClass("selected");
-            } else {
-                if (!$(".en-bottom-blank, .en-cols-word", view.screen).hasClass("selected")) {
-                    return false;
-                }
-                if ($(this).text() != $(".en-bottom-blank.selected", view.screen).attr("en-word")) {
-                    alert("Wrong answer !!");
-                    return;
-                }
-                $(".en-bottom-blank.selected", view.screen).text($(this).text());
-                $(".en-bottom-blank, .en-cols-word", view.screen).removeClass("selected");
+            var where = $("#sticky-panel").is(':visible') ? "#sticky-panel" : view.screen;
+
+            if (!$(".en-bottom-blank, .en-cols-word", where).hasClass("selected")) {
+                return false;
             }
+            if ($(this).text() != $(".en-bottom-blank.selected", where).attr("en-word")) {
+                alert("Wrong answer !!");
+                return;
+            }
+            $(".en-bottom-blank.selected", where).text($(this).text());
+            $(".en-bottom-blank, .en-cols-word", where).removeClass("selected");
+
+            // div는 자동으로 resize 이벤트가 발생하지 않으므로 강제로 발생시킨다.
+            $("#sticky-panel").trigger("resize");
+            
         });
     });
 
@@ -129,12 +123,14 @@ app.localization.registerView('viewType5');
         
         var scroller = e.view.scroller;
         scroller.bind("scroll", function(e) {
-            var top = $(".en-sticky-dummy", view.screen).offset().top;
+            var top = $(".en-sticky-dummy", view.screen).position().top 
+                            - parseInt($(".en-sticky-dummy", view.screen).parent().css("margin-top"),10)
+                            - parseInt($(".en-sticky-dummy", view.screen).parent().css("padding-top"),10);
             var fixed = $(".en-sticky-dummy", view.screen).attr("en-fixed");
 
             if( top ) view.vtop = top;
 
-            if( view.vtop <= e.scrollTop  ) {
+            if( view.vtop <= 0  ) {
                 if( fixed == "no" ) {
                     view.sticky(true);
                 }
@@ -163,7 +159,15 @@ app.localization.registerView('viewType5');
             $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
             $("#sticky-panel").show();
             $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+
+            // sticky-panel 크기를 원본과 맞추고 resize 이벤트를 바인드한다.
+            $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+            $("#sticky-panel").bind("resize", function() {
+                $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+            });
         } else {
+            $("#sticky-panel").unbind("resize");
+
             $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", '#sticky-panel'));
             $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
             $("#sticky-panel").hide();

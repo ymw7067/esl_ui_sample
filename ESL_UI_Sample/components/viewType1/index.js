@@ -93,12 +93,15 @@ app.localization.registerView('viewType1');
         
         var scroller = e.view.scroller;
         scroller.bind("scroll", function(e) {
-            var top = $(".en-sticky-dummy", view.screen).offset().top;
+            var top = $(".en-sticky-dummy", view.screen).position().top 
+                            - parseInt($(".en-sticky-dummy", view.screen).parent().css("margin-top"),10)
+                            - parseInt($(".en-sticky-dummy", view.screen).parent().css("padding-top"),10);
+                            
             var fixed = $(".en-sticky-dummy", view.screen).attr("en-fixed");
 
             if( top ) view.vtop = top;
 
-            if( view.vtop <= e.scrollTop  ) {
+            if( view.vtop <= 0  ) {
                 if( fixed == "no" ) {
                     view.sticky(true);
                 }
@@ -126,8 +129,15 @@ app.localization.registerView('viewType1');
             $("#sticky-panel .form-content-item").append($(".en-sticky-content", view.screen));
             $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
             $("#sticky-panel").show();
+
+            // sticky-panel 크기를 원본과 맞추고 resize 이벤트를 바인드한다.
             $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+            $("#sticky-panel").bind("resize", function() {
+                $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+            });
         } else {
+            $("#sticky-panel").unbind("resize");
+
             $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", '#sticky-panel'));
             $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
             $("#sticky-panel").hide();
@@ -200,6 +210,9 @@ app.localization.registerView('viewType1');
                 word.hide();
                 answer.text(word.text());
                 word.removeClass("en-drag");
+
+                // div는 자동으로 resize 이벤트가 발생하지 않으므로 강제로 발생시킨다.
+                $("#sticky-panel").trigger("resize");
             }
         });
     });

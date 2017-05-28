@@ -1,20 +1,21 @@
 'use strict';
 
 app.viewType9 = kendo.observable({
+    view: null,    
     screen: null,
-    model: null,
+    data: null,
     vtop: 0,
 
     // event
-    onShow: function(e) {},
-    afterShow: function(e) {},
-    beforeHide: function(e) {},
+    onShow: function(sender) {},
+    afterShow: function(sender) {},
+    beforeHide: function(sender) {},
 
     // method
-    initTemplate: function(e) {},
-    initDragdrop: function(e) {},
-    bindScroll: function(e) {},
-    unbindScroll: function(e) {},
+    initTemplate: function(sender) {},
+    initDragdrop: function(sender) {},
+    bindScroll: function(sender) {},
+    unbindScroll: function(sender) {},
     sticky: function(fixed) {}
 });
 app.localization.registerView('viewType9');
@@ -22,7 +23,7 @@ app.localization.registerView('viewType9');
 // START_CUSTOM_CODE_viewType9
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 // END_CUSTOM_CODE_viewType9
-(function(view) {
+(function(model) {
     var
     /// start global model properties
 
@@ -35,7 +36,7 @@ app.localization.registerView('viewType9');
     },
     /// end global model properties
 
-    model = kendo.observable({
+    data = kendo.observable({
         /// start add model functions
         sentences: [
             { hierarchy: "1", sentence: "I crashed my car at 80 kph" },
@@ -50,100 +51,109 @@ app.localization.registerView('viewType9');
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     /// start form functions
-    view.set('onInit', function(e) {
+    model.set('onInit', function(sender) {
         // 초기화 루틴
-        view.screen = $("#viewType9Screen");
+        model.view = sender.view;
+        model.screen = $("#viewType9Screen");
 
-        view.initTemplate(e);
-        view.initDragdrop(e);
+        model.initTemplate(sender);
+        model.initDragdrop(sender);
     });
 
-    view.set('onShow', function(e) {
-        view.set('addFormData', {
+    model.set('onShow', function(sender) {
+        model.set('addFormData', {
             /// start add form data init
             /// end add form data init
         });
         /// start add form show
-        
-        view.bindScroll(e);
+        model.bindScroll(sender);
 
         // 재방문 할때를 위해 초기화 한다.
-        view.vtop = 0;
-        e.view.scroller.scrollTo(0,0);
-        $(".en-draggable", view.screen).show();
-        $(".en-droptarget", view.screen).text("");
-        $(".en-draggable", view.screen).parent().parent().show().next().show();
+        model.vtop = 0;
+        model.view.scr
+        sender.view.scroller.scrollTo(0,0);
+        $(".en-draggable", model.screen).show();
+        $(".en-droptarget", model.screen).text("");
+        $(".en-draggable", model.screen).parent().parent().show().next().show();
     });
 
-    view.set('beforeHide', function(e) {
-        view.unbindScroll(e);
+    model.set('beforeHide', function(sender) {
+        model.unbindScroll(sender);
     });
 
-    view.set('model', model);
+    model.set('data', data);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('bindScroll', function(e) {
-        $('#sticky-panel').css("top", $('.km-header', view.screen).css('height'));
+    model.set('bindScroll', function(sender) {
+        $('#sticky-panel').css("top", $('.km-header', model.screen).css('height'));
         
-        var scroller = e.view.scroller;
+        var scroller = sender.view.scroller;
         scroller.bind("scroll", function(e) {
-            var top = $(".en-sticky-dummy", view.screen).offset().top;
-            var fixed = $(".en-sticky-dummy", view.screen).attr("en-fixed");
+            var top = $(".en-sticky-dummy", model.screen).position().top 
+                            - parseInt($(".en-sticky-dummy", model.screen).parent().css("margin-top"),10)
+                            - parseInt($(".en-sticky-dummy", model.screen).parent().css("padding-top"),10);
+            var fixed = $(".en-sticky-dummy", model.screen).attr("en-fixed");
 
-            if( top ) view.vtop = top;
+            if( top ) model.vtop = top;
 
-            if( view.vtop <= e.scrollTop  ) {
+            if( model.vtop <= 0  ) {
                 if( fixed == "no" ) {
-                    view.sticky(true);
+                    model.sticky(true);
                 }
             } else {
                 if( fixed == "yes" ) {
-                    view.sticky(false);
+                    model.sticky(false);
                 }
             }
         });
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('unbindScroll', function(e) {
-        e.view.scroller.unbind("scroll");
-        e.view.scroller.scrollTo(0,0);
+    model.set('unbindScroll', function(sender) {
+        sender.view.scroller.unbind("scroll");
+        sender.view.scroller.scrollTo(0,0);
         $(".km-scroll-container").removeClass("en-scroll-tn");
         
-        if( $(".en-sticky-dummy", view.screen).attr("en-fixed") == "yes" ) {
-            view.sticky(false);
+        if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes" ) {
+            model.sticky(false);
         }
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('sticky', function(yes){
+    model.set('sticky', function(yes){
         if( yes ) {
             // sticky_panel 로 옮긴다.
-            $("#sticky-panel .form-content-item").append($(".en-sticky-content", view.screen));
-            $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
+            $("#sticky-panel .form-content-item").append($(".en-sticky-content", model.screen));
+            $(".en-sticky-dummy", model.screen).attr("en-fixed", "yes");
             $("#sticky-panel").show();
-            $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+
+            // sticky-panel 크기를 원본과 맞추고 resize 이벤트를 바인드한다.
+            $(".en-sticky-source", model.screen).css("height", $("#sticky-panel").css("height"));
+            $("#sticky-panel").bind("resize", function() {
+                if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes" )
+                    $(".en-sticky-source", model.screen).css("height", $("#sticky-panel").css("height"));
+            });
         } else {
-            $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", '#sticky-panel'));
-            $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
+            $(".en-sticky-dummy", model.screen).after($(".en-sticky-content", '#sticky-panel'));
+            $(".en-sticky-dummy", model.screen).attr("en-fixed", "no");
             $("#sticky-panel").hide();
-            $(".en-sticky-source", view.screen).css("height", "");
+            $(".en-sticky-source", model.screen).css("height", "");
         }
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initTemplate', function (e) {
-        var template = kendo.template($(".en-sentences-template", view.screen).html());
-        var randomArr = new kendo.data.ObservableArray( shuffle( view.model.sentences.slice(), { 'copy': true }) );
+    model.set('initTemplate', function (sender) {
+        var template = kendo.template($(".en-sentences-template", model.screen).html());
+        var randomArr = new kendo.data.ObservableArray( shuffle( model.data.sentences.slice(), { 'copy': true }) );
         var result = kendo.render(template, randomArr);
 
-        $(".en-sticky-content", view.screen).html(result);
+        $(".en-sticky-content", model.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initDragdrop', function (e) {
-        $(".en-draggable", view.screen).kendoDraggable({
+    model.set('initDragdrop', function (sender) {
+        $(".en-draggable", model.screen).kendoDraggable({
             hint: function(el) {
                 return el.clone().addClass("en-dragdrop-clone");
             },
@@ -152,11 +162,11 @@ app.localization.registerView('viewType9');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("en-text-drag");
-                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
+                $(".en-droptarget", model.screen).removeClass("en-droptarget-over");
             }
         });
 
-        $(".en-droptarget", view.screen).kendoDropTarget({
+        $(".en-droptarget", model.screen).kendoDropTarget({
             dragenter: function(e) {
                  e.dropTarget.addClass("en-droptarget-over");
             },
@@ -164,6 +174,7 @@ app.localization.registerView('viewType9');
                 e.dropTarget.removeClass("en-droptarget-over");
             },
             drop: function(e) { 
+                console.dir(e);
                 var sentence = e.draggable.element;
                 var answer = e.dropTarget;
 
@@ -176,13 +187,17 @@ app.localization.registerView('viewType9');
                 answer.text(sentence.text());
                 sentence.removeClass("en-text-drag");
 
-                if (sentence.parent().find(".en-draggable:visible").length <= 0) {
-                    if ($("#sticky-panel").is(":visible")) {
-                        view.sticky(false);
-                        $(".km-scroll-container").addClass("en-scroll-tn");
-                    }
-                    sentence.parent().parent().hide().next().hide();
+                // div는 자동으로 resize 이벤트가 발생하지 않으므로 강제로 발생시킨다.
+                if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes") {
+                    $("#sticky-panel").trigger("resize");
                 }
+
+                if (sentence.parent().find(".en-draggable:visible").length <= 0) {
+                    model.view.scroller.scrollTo(0,0);
+                    sentence.parent().parent().hide().next().hide();
+                    
+                }
+
             }
         });
     });
