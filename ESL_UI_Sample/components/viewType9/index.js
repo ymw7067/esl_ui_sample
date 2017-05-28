@@ -38,12 +38,12 @@ app.localization.registerView('viewType9');
     model = kendo.observable({
         /// start add model functions
         sentences: [
-            { sentence: "I fell off my bike" },
-            { sentence: "I bumped into my colleague" },
-            { sentence: "I crashed my car at 80 kph" },
-            { sentence: "I tripped over the cat" },
-            { sentence: "I crashed my car at 20 kph" },
-            { sentence: "I slipped in the shower" }
+            { hierarchy: "1", sentence: "I crashed my car at 80 kph" },
+            { hierarchy: "2", sentence: "I fell off my bike" },
+            { hierarchy: "3", sentence: "I slipped in the shower" },
+            { hierarchy: "3", sentence: "I crashed my car at 20 kph" },
+            { hierarchy: "4", sentence: "I tripped over the cat" },
+            { hierarchy: "5", sentence: "I bumped into my colleague" }
         ]
         /// end add model functions
     });
@@ -72,6 +72,7 @@ app.localization.registerView('viewType9');
         e.view.scroller.scrollTo(0,0);
         $(".en-draggable", view.screen).show();
         $(".en-droptarget", view.screen).text("");
+        $(".en-draggable", view.screen).parent().parent().show().next().show();
     });
 
     view.set('beforeHide', function(e) {
@@ -164,7 +165,7 @@ app.localization.registerView('viewType9');
                 var sentence = e.draggable.element;
                 var answer = e.dropTarget;
 
-                if( sentence.text() != answer.attr("en-word") ) {
+                if( sentence.attr("en-compare") != answer.attr("en-compare") ) {
                     e.preventDefault();
                     return;
                 }
@@ -172,6 +173,8 @@ app.localization.registerView('viewType9');
                 sentence.hide();
                 answer.text(sentence.text());
                 sentence.removeClass("en-text-drag");
+
+                if (sentence.parent().find(".en-draggable:visible").length <= 0) sentence.parent().parent().hide().next().hide();
             }
         });
     });

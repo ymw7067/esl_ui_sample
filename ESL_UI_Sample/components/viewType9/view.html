@@ -13,7 +13,7 @@
         <div class="form-content-item en-list-item">
             <label id="textInstructionField" class="km-label-above field field--text-block">
                 <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
-                <div class="textBlock field__content">Decide if these accidents are serious and put them on the cline  (drag and drop)</div>
+                <div class="textBlock field__content">Decide if these accidents are serious and put them on the cline (drag and drop)</div>
             </label>
         </div>
         <div class="en-line"></div>
@@ -29,8 +29,8 @@
                     <div style="">Serious</div>
                     <div style="position:relative; width:100%">
                         <div style="position:absolute; left:50%; width:80%">
-                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-word="I crashed my car at 80 kph"></div>
-                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-word="I fell off my bike"></div>
+                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-compare="1"></div>
+                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-compare="2"></div>
                         </div>
                     </div>
                 </div>
@@ -38,18 +38,18 @@
                 <div class="en-clinebox" style="background-color:#F49650;">
                     <div style="">Quite serious</div>
                     <div style="position:relative; width:100%; height:100%">
-                        <div class="en-clinebox-answer en-droptarget pull-left" style="width:45%;" en-word="I slipped in the shower"></div>
+                        <div class="en-clinebox-answer en-droptarget pull-left" style="width:45%;" en-compare="3"></div>
                         <div class="pull-left" style="width:10%; height:30px; border-bottom:1px solid #dadada;"></div>
-                        <div class="en-clinebox-answer en-droptarget pull-left" style="width:45%; min-height:36px" en-word="I crashed my car at 20 kph"></div>
+                        <div class="en-clinebox-answer en-droptarget pull-left" style="width:45%; min-height:36px" en-compare="3"></div>
                     </div>
                 </div>
-                <div class="en-line"></div>
+                <div class="en-line aaa"></div>
                 <div class="en-clinebox" style="background-color:#9ABC61;">
                     <div style="">Not serious</div>
                     <div style="position:relative; width:100%">
                         <div style="position:absolute; left:50%; width:80%">
-                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-word="I tripped over the cat"></div>
-                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-word="I bumped into my colleague"></div>
+                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-compare="4"></div>
+                            <div class="en-clinebox-answer en-droptarget" style="position:relative; left:-50%; min-width:250px;" en-compare="5"></div>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
     </div>
 
     <script type="text/x-kendo-template" class="en-sentences-template">
-        <div class="en-draggable" style="cursor:pointer;">#:sentence#</div>
+        <div class="en-draggable" style="cursor:pointer;" en-compare="#:hierarchy#">#:sentence#</div>
     </script>
     <!-- END_CUSTOM_CODE_viewType9 -->
 </div>
