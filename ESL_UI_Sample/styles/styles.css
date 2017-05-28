@@ -164,6 +164,26 @@
     transform: none !important;
 }
 
+.en-stress-button-color {
+    color: #32364c;
+}
+.en-stress-text {
+    font-size: 2.5em;
+    line-height: 1em;
+}
+.en-phonetic-text {
+    font-size: 1.5em;
+    line-height: 1em;
+    text-align: center;
+    color: gray;
+}
+.en-color-gray {
+    color: gray;
+}
+.en-stress {
+    color: red !important;
+}
+
 .en-draggable.en-drag {
     cursor: default;
     background-color: buttonface;
@@ -176,7 +196,6 @@
 .en-draggable.en-dragdrop-clone {
     font-size: 1.5em;
     color: blue;
-    
 }
 .en-droptarget {
     border: 1px solid #dadada;
