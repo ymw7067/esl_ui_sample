@@ -1,8 +1,9 @@
 'use strict';
 
 app.viewType13 = kendo.observable({
+    view: null,    
     screen: null,
-    model: null,
+    data: null,
     vtop: 0,
 
     // event
@@ -22,7 +23,7 @@ app.localization.registerView('viewType13');
 // START_CUSTOM_CODE_viewType13
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 // END_CUSTOM_CODE_viewType13
-(function(view) {
+(function(model) {
     var
     /// start global model properties
 
@@ -34,118 +35,119 @@ app.localization.registerView('viewType13');
         return img;
     },
     /// end global model properties
-
-    model = kendo.observable({
+    data = kendo.observable({
         /// start add model functions
-        stresses: [
-            { stress: "d͡ʒ" },
-            { stress: "d͡ʒ" },
-            { stress: "t͡ʃ" },
-            { stress: "ɑɪ" },
-            { stress: "ɛɪ" },
-            { stress: "ə" },
-            { stress: "i" },
-            { stress: "u" },
-            { stress: "e" }
+        phonetics: [
+            { phonetic: "d͡ʒ" },
+            { phonetic: "d͡ʒ" },
+            { phonetic: "t͡ʃ" },
+            { phonetic: "ɑɪ" },
+            { phonetic: "ɛɪ" },
+            { phonetic: "ə" },
+            { phonetic: "ə" },
+            { phonetic: "ə" },
+            { phonetic: "ə" }
         ]
         /// end add model functions
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     /// start form functions
-    view.set('onInit', function(e) {
+    model.set('onInit', function(e) {
         // 초기화 루틴
-        view.screen = $("#viewType13Screen")
+        model.view = e.view;
+        model.screen = $("#viewType13Screen")
 
-        view.initTemplate(e);
-        view.initDragdrop(e);
+        model.initTemplate(e);
+        model.initDragdrop(e);
     });
 
-    view.set('onShow', function(e) {
-        view.set('addFormData', {
+    model.set('onShow', function(e) {
+        model.set('addFormData', {
             /// start add form data init
             /// end add form data init
         });
         /// start add form show
         
-        view.bindScroll(e);
+        model.bindScroll(e);
 
         // 재방문 할때를 위해 초기화 한다.
-        view.vtop = 0;
-        e.view.scroller.scrollTo(0,0);
-        $(".en-draggable", view.screen).show();
-        $(".en-dragdrop-answer", view.screen).text("");
+        model.vtop = 0;
+        model.view.scroller.scrollTo(0,0);
+        $(".en-draggable", model.screen).show();
+        $(".en-dragdrop-answer", model.screen).text("");
     });
 
-    view.set('beforeHide', function(e) {
-        view.unbindScroll(e);
+    model.set('beforeHide', function(e) {
+        model.unbindScroll(e);
     });
 
-    view.set('model', model);
+    model.set('data', data);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('bindScroll', function(e) {
-        $('#sticky-panel').css("top", $('.km-header', view.screen).css('height'));
+    model.set('bindScroll', function(e) {
+        $('#sticky-panel').css("top", $('.km-header', model.screen).css('height'));
         
-        var scroller = e.view.scroller;
-        scroller.bind("scroll", function(e) {
-            var top = $(".en-sticky-dummy", view.screen).offset().top;
-            var fixed = $(".en-sticky-dummy", view.screen).attr("en-fixed");
+        model.view.scroller.bind("scroll", function(e) {
+            var top = $(".en-sticky-dummy", model.screen).position().top 
+                            - parseInt($(".en-sticky-dummy", model.screen).parent().css("margin-top"),10)
+                            - parseInt($(".en-sticky-dummy", model.screen).parent().css("padding-top"),10);
+            var fixed = $(".en-sticky-dummy", model.screen).attr("en-fixed");
 
-            if( top ) view.vtop = top;
+            if( top ) model.vtop = top;
 
-            if( view.vtop <= e.scrollTop  ) {
+            if( model.vtop <= 0  ) {
                 if( fixed == "no" ) {
-                    view.sticky(true);
+                    model.sticky(true);
                 }
             } else {
                 if( fixed == "yes" ) {
-                    view.sticky(false);
+                    model.sticky(false);
                 }
             }
         });
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('unbindScroll', function(e) {
-        e.view.scroller.unbind("scroll");
+    model.set('unbindScroll', function(e) {
+        model.view.scroller.unbind("scroll");
         
-        if( $(".en-sticky-dummy", view.screen).attr("en-fixed") == "yes" ) {
-            view.sticky(false);
+        if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes" ) {
+            model.sticky(false);
         }
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('sticky', function(yes){
+    model.set('sticky', function(yes){
         if( yes ) {
             // sticky_panel 로 옮긴다.
-            $("#sticky-panel .form-content-item").append($(".en-sticky-content", view.screen));
-            $(".en-sticky-dummy", view.screen).attr("en-fixed", "yes");
+            $("#sticky-panel .form-content-item").append($(".en-sticky-content", model.screen));
+            $(".en-sticky-dummy", model.screen).attr("en-fixed", "yes");
             $("#sticky-panel").show();
-            $(".en-sticky-source", view.screen).css("height", $("#sticky-panel").css("height"));
+            $(".en-sticky-source", model.screen).css("height", $("#sticky-panel").css("height"));
         } else {
-            $(".en-sticky-dummy", view.screen).after($(".en-sticky-content", '#sticky-panel'));
-            $(".en-sticky-dummy", view.screen).attr("en-fixed", "no");
+            $(".en-sticky-dummy", model.screen).after($(".en-sticky-content", '#sticky-panel'));
+            $(".en-sticky-dummy", model.screen).attr("en-fixed", "no");
             $("#sticky-panel").hide();
-            $(".en-sticky-source", view.screen).css("height", "");
+            $(".en-sticky-source", model.screen).css("height", "");
         }
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initTemplate', function (e) {
+    model.set('initTemplate', function (e) {
         var template, result;
 
-        template = kendo.template($(".en-buttons-template", view.screen).html());
-        var randomArr = new kendo.data.ObservableArray( shuffle( view.model.stresses.slice(), { 'copy': true }) );
+        template = kendo.template($(".en-buttons-template", model.screen).html());
+        var randomArr = new kendo.data.ObservableArray( shuffle( model.data.phonetics.slice(), { 'copy': true }) );
 
         result = kendo.render(template, randomArr);
-        $(".en-sticky-content", view.screen).html(result);
+        $("#phonetics-buttons", model.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initDragdrop', function (e) {
-        $(".en-draggable", view.screen).kendoDraggable({
+    model.set('initDragdrop', function (e) {
+        $(".en-draggable", model.screen).kendoDraggable({
             hint: function(el) {
                 return el.clone();
             },
@@ -154,11 +156,11 @@ app.localization.registerView('viewType13');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("en-drag");
-                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
+                $(".en-droptarget", model.screen).removeClass("en-droptarget-over");
             }
         });
 
-        $(".en-droptarget", view.screen).kendoDropTarget({
+        $(".en-droptarget", model.screen).kendoDropTarget({
             dragenter: function(e) {
                  e.dropTarget.addClass("en-droptarget-over");
             },

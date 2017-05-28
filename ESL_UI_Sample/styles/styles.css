@@ -186,11 +186,12 @@
 
 .en-draggable.en-drag {
     cursor: default;
-    background-color: buttonface;
+    background-color: #efefef;
     z-index: 10000;
 }
 .en-draggable.en-text-drag {
     background-color: transparent;
+    color: #dadada;
     z-index: 10000;
 }
 .en-draggable.en-dragdrop-clone {

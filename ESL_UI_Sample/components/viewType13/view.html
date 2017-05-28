@@ -18,10 +18,18 @@
                 </label>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
-                <div class="en-sticky-source form-content-item en-list-item">
-                    <div class="en-sticky-dummy" en-fixed="no"></div> 
-                    <div class="en-sticky-content"></div>
+            <div class="form-content-item en-list-item en-sticky-source clearfix">
+                <div class="en-sticky-dummy" en-fixed="no"></div> 
+                <div class="en-sticky-content">
+                    <div style="display: table;">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell; vertical-align:middle">
+                                <a data-role="button" data-animated="true" data-icon="sounds" style="width:44px"></a>
+                            </div>
+                            <div id="phonetics-buttons" style="display: table-cell; padding-left:10px; width:100%">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="en-line"></div>
@@ -224,7 +232,7 @@
 
     <!--template은 data-role=button이 작동이 되질 않는다. (그래서 km-widget km-button을 수동으로 클래스에 추가)-->
     <script type="text/x-kendo-template" class="en-buttons-template">
-        <button data-role="button" class="km-widget km-button km-small en-draggable en-stress-button-color">#:stress#</button>
+        <button data-role="button" class="km-widget km-button km-small en-draggable en-stress-button-color" style="width:35px;">#:phonetic#</button>
     </script>
 </div>
 
