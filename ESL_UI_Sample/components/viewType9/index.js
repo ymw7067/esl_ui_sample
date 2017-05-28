@@ -70,8 +70,7 @@ app.localization.registerView('viewType9');
 
         // 재방문 할때를 위해 초기화 한다.
         model.vtop = 0;
-        model.view.scr
-        sender.view.scroller.scrollTo(0,0);
+        model.view.scroller.scrollTo(0,0);
         $(".en-draggable", model.screen).show();
         $(".en-droptarget", model.screen).text("");
         $(".en-draggable", model.screen).parent().parent().show().next().show();
@@ -88,8 +87,7 @@ app.localization.registerView('viewType9');
     model.set('bindScroll', function(sender) {
         $('#sticky-panel').css("top", $('.km-header', model.screen).css('height'));
         
-        var scroller = sender.view.scroller;
-        scroller.bind("scroll", function(e) {
+        model.view.scroller.bind("scroll", function(e) {
             var top = $(".en-sticky-dummy", model.screen).position().top 
                             - parseInt($(".en-sticky-dummy", model.screen).parent().css("margin-top"),10)
                             - parseInt($(".en-sticky-dummy", model.screen).parent().css("padding-top"),10);
@@ -111,8 +109,8 @@ app.localization.registerView('viewType9');
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     model.set('unbindScroll', function(sender) {
-        sender.view.scroller.unbind("scroll");
-        sender.view.scroller.scrollTo(0,0);
+        model.view.scroller.unbind("scroll");
+        model.view.scroller.scrollTo(0,0);
         $(".km-scroll-container").removeClass("en-scroll-tn");
         
         if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes" ) {
