@@ -12,11 +12,11 @@ app.viewType9 = kendo.observable({
     beforeHide: function(sender) {},
 
     // method
-    initTemplate: function(sender) {},
     initDragdrop: function(sender) {},
     bindScroll: function(sender) {},
     unbindScroll: function(sender) {},
-    sticky: function(fixed) {}
+    sticky: function(fixed) {},
+    randomSentences: function(sender) {},
 });
 app.localization.registerView('viewType9');
 
@@ -55,9 +55,6 @@ app.localization.registerView('viewType9');
         // 초기화 루틴
         model.view = sender.view;
         model.screen = $("#viewType9Screen");
-
-        model.initTemplate(sender);
-        model.initDragdrop(sender);
     });
 
     model.set('onShow', function(sender) {
@@ -66,14 +63,16 @@ app.localization.registerView('viewType9');
             /// end add form data init
         });
         /// start add form show
+        model.randomSentences(sender);
+        model.initDragdrop(sender);
         model.bindScroll(sender);
 
         // 재방문 할때를 위해 초기화 한다.
         model.vtop = 0;
         model.view.scroller.scrollTo(0,0);
+        $(".en-sticky-source", model.screen).show().next().show();
         $(".en-draggable", model.screen).show();
         $(".en-droptarget", model.screen).text("");
-        $(".en-draggable", model.screen).parent().parent().show().next().show();
     });
 
     model.set('beforeHide', function(sender) {
@@ -141,7 +140,7 @@ app.localization.registerView('viewType9');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('initTemplate', function (sender) {
+    model.set('randomSentences', function (sender) {
         var template = kendo.template($(".en-sentences-template", model.screen).html());
         var randomArr = new kendo.data.ObservableArray( shuffle( model.data.sentences.slice(), { 'copy': true }) );
         var result = kendo.render(template, randomArr);
@@ -172,7 +171,6 @@ app.localization.registerView('viewType9');
                 e.dropTarget.removeClass("en-droptarget-over");
             },
             drop: function(e) { 
-                console.dir(e);
                 var sentence = e.draggable.element;
                 var answer = e.dropTarget;
 
@@ -192,8 +190,8 @@ app.localization.registerView('viewType9');
 
                 if (sentence.parent().find(".en-draggable:visible").length <= 0) {
                     model.view.scroller.scrollTo(0,0);
-                    sentence.parent().parent().hide().next().hide();
-                    
+                    model.unbindScroll(model.view);
+                    $(".en-sticky-source", model.screen).hide().next().hide();
                 }
 
             }

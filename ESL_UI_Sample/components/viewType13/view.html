@@ -6,6 +6,11 @@
             <a data-align="right" data-role="button" class="nav-button" href="#/">Index</a>
         </div>
     </header>
+    <footer data-role="footer">
+        <div data-role="navbar" class="header-text">
+            <a data-role="button" class="nav-button" data-click="app.viewType13.nextStep">Next Step</a>
+        </div>
+    </footer>
 
     <!-- START_CUSTOM_CODE_viewType13 -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
@@ -14,7 +19,7 @@
             <div class="form-content-item en-list-item">
                 <label id="textInstructionField" class="km-label-above field field--text-block">
                     <span class="field__label" data-bind="text: strings.viewType1.viewType1Model.editableListForm1.textInstruction.title"></span>
-                    <div class="textBlock field__content">Listen to the words and click on the main stress</div>
+                    <div id="instruction" class="textBlock field__content">Listen to the words and click on the main stress</div>
                 </label>
             </div>
             <div class="en-line"></div>
@@ -26,203 +31,185 @@
                             <div style="display: table-cell; vertical-align:middle">
                                 <a data-role="button" data-animated="true" data-icon="sounds" style="width:44px"></a>
                             </div>
-                            <div id="phonetics-buttons" style="display: table-cell; padding-left:10px; width:100%">
+                            <div id="phonetics-buttons" style="display: table-cell; vertical-align:middle; padding-left:10px; width:100%">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ɑɪ</div>
-                        <div class="en-stress-text">kind</div>
-                    </div>
+                    <div class="en-phonetic-text" en-phonetic="ɑɪ" style="padding-left:16px;">ɑɪ</div>
+                    <div class="en-stress-text">kind</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ɛɪ</div>
-                        <div class="en-stress-text">brave</div>
-                    </div>
+                    <div class="en-phonetic-text" en-phonetic="ɛɪ" style="padding-left:42px;">ɛɪ</div>
+                    <div class="en-stress-text">brave</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">spoiled</div>
-                    </div>
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">spoiled</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix bg-info">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">d͡ʒ</div>
-                        <div class="en-stress-text en-stress">ge</div>
-                    </div>
+                    <div class="en-phonetic-text" en-phonetic="d͡ʒ">d͡ʒ</div>
+                    <div class="en-stress-text" en-stress="yes">ge</div>
+                </div>
 
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
 
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ə</div>
-                        <div class="en-stress-text">ner</div>
-                    </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text" en-phonetic="ə" style="padding-left:30px;">ə</div>
+                    <div class="en-stress-text">ner</div>
+                </div>
 
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">ous</div>
-                    </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">ous</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-stress">i</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">di</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ə</div>
-                        <div class="en-stress-text">ot</div>
-                    </div>
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text" en-stress="yes">i</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">di</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text" en-phonetic="ə" style="padding-left:5px;">ə</div>
+                    <div class="en-stress-text">ot</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">cool</div>
-                    </div>
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">cool</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-stress">me</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">ssy</div>
-                    </div>
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text" en-stress="yes">me</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">ssy</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">d͡ʒ</div>
-                        <div class="en-stress-text en-stress">ge</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">ni</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ə</div>
-                        <div class="en-stress-text">us</div>
-                    </div>
+                    <div class="en-phonetic-text" en-phonetic="d͡ʒ">d͡ʒ</div>
+                    <div class="en-stress-text" en-stress="yes">ge</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">ni</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text" en-phonetic="ə" style="padding-left:5px;">ə</div>
+                    <div class="en-stress-text">us</div>
                 </div>
             </div>
             <div class="en-line"></div>
-            <div class="form-content-item en-list-item clearfix">
+            <div class="form-content-item en-list-item word clearfix">
+                <div class="pull-left" style="margin-right:20px;">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
+                </div>
                 <div class="pull-left">
-                    <div class="pull-left" style="margin-right:20px;">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div style="vertical-align:bottom;"><a data-role="button" data-animated="true" data-icon="sounds"></a></div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text">im</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">ə</div>
-                        <div class="en-stress-text">ma</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">&nbsp;</div>
-                        <div class="en-stress-text en-color-gray">·</div>
-                    </div>
-                    <div class="pull-left">
-                        <div class="en-phonetic-text">t͡ʃ</div>
-                        <div class="en-stress-text en-stress">ture</div>
-                    </div>
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-stress-text">im</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text" en-phonetic="ə" style="padding-left:42px;">ə</div>
+                    <div class="en-stress-text">ma</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text">&nbsp;</div>
+                    <div class="en-phonetic-symbol">·</div>
+                </div>
+                <div class="pull-left">
+                    <div class="en-phonetic-text" en-phonetic="t͡ʃ">t͡ʃ</div>
+                    <div class="en-stress-text" en-stress="yes">ture</div>
                 </div>
             </div>
             <div class="en-line"></div>
@@ -232,7 +219,7 @@
 
     <!--template은 data-role=button이 작동이 되질 않는다. (그래서 km-widget km-button을 수동으로 클래스에 추가)-->
     <script type="text/x-kendo-template" class="en-buttons-template">
-        <button data-role="button" class="km-widget km-button km-small en-draggable en-stress-button-color" style="width:35px;">#:phonetic#</button>
+        <button data-role="button" class="km-widget km-button km-small en-draggable" style="width:35px;">#:phonetic#</button>
     </script>
 </div>
 
