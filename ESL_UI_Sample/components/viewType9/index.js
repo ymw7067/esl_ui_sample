@@ -108,6 +108,8 @@ app.localization.registerView('viewType9');
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     view.set('unbindScroll', function(e) {
         e.view.scroller.unbind("scroll");
+        e.view.scroller.scrollTo(0,0);
+        $(".km-scroll-container").removeClass("en-scroll-tn");
         
         if( $(".en-sticky-dummy", view.screen).attr("en-fixed") == "yes" ) {
             view.sticky(false);
@@ -174,7 +176,13 @@ app.localization.registerView('viewType9');
                 answer.text(sentence.text());
                 sentence.removeClass("en-text-drag");
 
-                if (sentence.parent().find(".en-draggable:visible").length <= 0) sentence.parent().parent().hide().next().hide();
+                if (sentence.parent().find(".en-draggable:visible").length <= 0) {
+                    if ($("#sticky-panel").is(":visible")) {
+                        view.sticky(false);
+                        $(".km-scroll-container").addClass("en-scroll-tn");
+                    }
+                    sentence.parent().parent().hide().next().hide();
+                }
             }
         });
     });

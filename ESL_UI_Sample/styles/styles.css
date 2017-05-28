@@ -160,6 +160,9 @@
     transform: translateY(-50%);
     /* vendor prefixes omitted due to brevity */
 }
+.en-scroll-tn {
+    transform: none !important;
+}
 
 .en-draggable.en-drag {
     cursor: default;
