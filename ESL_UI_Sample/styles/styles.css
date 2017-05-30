@@ -26,7 +26,6 @@
     list-style-type: none;
 }
 .en-list > .en-list-item {
-    overflow: hidden;
     font-size: 1.2em;
     line-height: 1.5em;
     padding: 10px 10px;
@@ -230,6 +229,7 @@
 }
 .en-phonetic-droptarget {
     border: none;
+    position:relative;
 }
 .en-phonetic-droptarget.en-droptarget-over {
     border: 2px solid #000088;

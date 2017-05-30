@@ -60,6 +60,7 @@ app.localization.registerView('viewType13');
         model.view = sender.view;
         model.screen = $("#viewType13Screen")
 
+        $('.km-popup-overlay').eq(0).find('.km-popup-arrow').addClass("en-popover-arrow");
     });
 
     model.set('onShow', function(sender) {
@@ -156,7 +157,7 @@ app.localization.registerView('viewType13');
             $(this).addClass("bg-info");
 
             $(".en-phonetic-symbol", model.screen).parent().hide(); 
-            $(".en-phonetic-symbol",$(this)).parent().show(); 
+            $(".en-phonetic-symbol",$(this)).parent().show();
         });
 
         // 모든 en-phonetic-symbol 을 숨긴다.
@@ -233,12 +234,33 @@ app.localization.registerView('viewType13');
                 e.dropTarget.parent().siblings(".word").removeClass("bg-info");
                 e.dropTarget.parent().addClass("bg-info")
                 $(".en-phonetic-symbol", model.screen).parent().hide(); 
-                $(".en-phonetic-symbol",e.dropTarget.parent()).parent().show(); 
+                $(".en-phonetic-symbol",e.dropTarget.parent()).parent().show();
+
+                var clone = e.dropTarget.find(".en-stress-text").clone().addClass("draghint");
+                clone.css({
+                    "position": "absolute",
+                    "z-index": 10001,
+                    "width": e.dropTarget.css("width"),
+                    "text-align": "center",
+                    "background-color": "#eef7fb",
+                    "border": "2px solid #dadada",
+                    "border-radius": "5px"
+                });
+
+                clone.insertAfter($("#sticky-panel"));
+                clone.offset({
+                    top: e.dropTarget.offset().top - parseInt(clone.css("height"), 10) - 5,
+                    left: e.dropTarget.offset().left
+                });
+
+
             },
             dragleave: function(e) {
                 e.dropTarget.removeClass("en-droptarget-over");
+                $(".draghint").remove();
             },
             drop: function(e) { 
+                $(".draghint").remove();
                 var phonetic = e.draggable.element;
                 var answer = e.dropTarget.find(".en-phonetic-text");
 
@@ -268,7 +290,10 @@ app.localization.registerView('viewType13');
                 e.dropTarget.siblings(".word").removeClass("bg-info");
                 e.dropTarget.addClass("bg-info")
                 $(".en-phonetic-symbol", model.screen).parent().hide(); 
-                $(".en-phonetic-symbol",e.dropTarget).parent().show(); 
+                $(".en-phonetic-symbol",e.dropTarget).parent().show();
+
+                //$("#popover").data("kendoMobilePopOver").open(e.dropTarget); 
+
             },
             dragleave: function(e) {
             },
