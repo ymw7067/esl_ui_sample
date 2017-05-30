@@ -185,6 +185,16 @@
     color: red !important;
 }
 
+.en-draggable {
+    color: #32364c !important;
+}
+.km-primary.en-draggable {
+    color: #fff !important;
+}
+.km-primary.en-draggable.en-drag {
+    color: #32364c !important;
+}
+
 .en-draggable.en-drag {
     cursor: default;
     background-color: #efefef;
