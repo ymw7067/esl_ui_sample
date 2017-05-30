@@ -16,7 +16,7 @@ app.viewType9 = kendo.observable({
     bindScroll: function(sender) {},
     unbindScroll: function(sender) {},
     sticky: function(fixed) {},
-    randomSentences: function(sender) {},
+    randomSentences: function(sender) {}
 });
 app.localization.registerView('viewType9');
 
@@ -51,14 +51,14 @@ app.localization.registerView('viewType9');
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     /// start form functions
-    model.set('onInit', function(sender) {
+    model.set("onInit", function(sender) {
         // 초기화 루틴
         model.view = sender.view;
         model.screen = $("#viewType9Screen");
     });
 
-    model.set('onShow', function(sender) {
-        model.set('addFormData', {
+    model.set("onShow", function(sender) {
+        model.set("addFormData", {
             /// start add form data init
             /// end add form data init
         });
@@ -75,16 +75,16 @@ app.localization.registerView('viewType9');
         $(".en-droptarget", model.screen).text("");
     });
 
-    model.set('beforeHide', function(sender) {
+    model.set("beforeHide", function(sender) {
         model.unbindScroll(sender);
     });
 
-    model.set('data', data);
+    model.set("data", data);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('bindScroll', function(sender) {
-        $('#sticky-panel').css("top", $('.km-header', model.screen).css('height'));
+    model.set("bindScroll", function(sender) {
+        $("#sticky-panel").css("top", $(".km-header", model.screen).css("height"));
         
         model.view.scroller.bind("scroll", function(e) {
             var top = $(".en-sticky-dummy", model.screen).position().top 
@@ -107,10 +107,9 @@ app.localization.registerView('viewType9');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('unbindScroll', function(sender) {
+    model.set("unbindScroll", function(sender) {
         model.view.scroller.unbind("scroll");
         model.view.scroller.scrollTo(0,0);
-        $(".km-scroll-container").removeClass("en-scroll-tn");
         
         if( $(".en-sticky-dummy", model.screen).attr("en-fixed") == "yes" ) {
             model.sticky(false);
@@ -118,7 +117,7 @@ app.localization.registerView('viewType9');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('sticky', function(yes){
+    model.set("sticky", function(yes){
         if( yes ) {
             // sticky_panel 로 옮긴다.
             $("#sticky-panel .form-content-item").append($(".en-sticky-content", model.screen));
@@ -132,7 +131,7 @@ app.localization.registerView('viewType9');
                     $(".en-sticky-source", model.screen).css("height", $("#sticky-panel").css("height"));
             });
         } else {
-            $(".en-sticky-dummy", model.screen).after($(".en-sticky-content", '#sticky-panel'));
+            $(".en-sticky-dummy", model.screen).after($(".en-sticky-content", "#sticky-panel"));
             $(".en-sticky-dummy", model.screen).attr("en-fixed", "no");
             $("#sticky-panel").hide();
             $(".en-sticky-source", model.screen).css("height", "");
@@ -140,16 +139,16 @@ app.localization.registerView('viewType9');
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('randomSentences', function (sender) {
+    model.set("randomSentences", function (sender) {
         var template = kendo.template($(".en-sentences-template", model.screen).html());
-        var randomArr = new kendo.data.ObservableArray( shuffle( model.data.sentences.slice(), { 'copy': true }) );
+        var randomArr = new kendo.data.ObservableArray( shuffle( model.data.sentences.slice(), { "copy": true }) );
         var result = kendo.render(template, randomArr);
 
         $(".en-sticky-content", model.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    model.set('initDragdrop', function (sender) {
+    model.set("initDragdrop", function (sender) {
         $(".en-draggable", model.screen).kendoDraggable({
             hint: function(el) {
                 return el.clone().addClass("en-dragdrop-clone");
@@ -165,7 +164,7 @@ app.localization.registerView('viewType9');
 
         $(".en-droptarget", model.screen).kendoDropTarget({
             dragenter: function(e) {
-                 e.dropTarget.addClass("en-droptarget-over");
+                e.dropTarget.addClass("en-droptarget-over");
             },
             dragleave: function(e) {
                 e.dropTarget.removeClass("en-droptarget-over");
@@ -193,7 +192,6 @@ app.localization.registerView('viewType9');
                     model.unbindScroll(model.view);
                     $(".en-sticky-source", model.screen).hide().next().hide();
                 }
-
             }
         });
     });

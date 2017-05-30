@@ -1,17 +1,18 @@
 'use strict';
 
 app.viewType8 = kendo.observable({
+    view: null,
     screen: null,
     model: null,
 
     // event
-    onShow: function(e) {},
-    afterShow: function(e) {},
-    beforeHide: function(e) {},
+    onShow: function(sender) {},
+    afterShow: function(sender) {},
+    beforeHide: function(sender) {},
 
     // method
-    initTemplate: function(e) {},
-    selectedClick: function(e) {}
+    initTemplate: function(sender) {},
+    selectedClick: function(sender) {}
 });
 app.localization.registerView('viewType8');
 
@@ -19,7 +20,7 @@ app.localization.registerView('viewType8');
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
 // END_CUSTOM_CODE_viewType8
-(function(view) {
+(function(model) {
     var
     /// start global model properties
 
@@ -32,7 +33,7 @@ app.localization.registerView('viewType8');
     },
     /// end global model properties
 
-    model = kendo.observable({
+    data = kendo.observable({
         /// start add model functions
         questions1: [
             { word: "(be) verb", compare: "questions1" },
@@ -71,72 +72,73 @@ app.localization.registerView('viewType8');
     });
 
     /// start form functions
-    view.set('onInit', function(e) {
+    model.set("onInit", function(sender) {
         // 초기화 루틴
-        view.screen = $("#viewType8Screen");
+        model.view = sender.view;
+        model.screen = $("#viewType8Screen");
 
-        view.initTemplate(e);
-        view.selectedClick(e);
+        model.initTemplate(sender);
+        model.selectedClick(sender);
     });
 
-    view.set('onShow', function(e) {
-        view.set('addFormData', {
+    model.set("onShow", function(sender) {
+        model.set("addFormData", {
             /// start add form data init
             /// end add form data init
         });
         
         // 재방문 할때를 위해 초기화 한다.
-        e.view.scroller.scrollTo(0,0);
-        $(".en-button", view.screen).show().parent().show();
-        $(".en-bottom-blank", view.screen).text("");
-        $(".en-bottom-blank", view.screen).removeClass("selected");
+        model.view.scroller.scrollTo(0,0);
+        $(".en-button", model.screen).show().parent().show();
+        $(".en-bottom-blank", model.screen).text("");
+        $(".en-bottom-blank", model.screen).removeClass("selected");
     });
 
-    view.set('beforeHide', function(e) {
-        e.view.scroller.scrollTo(0,0);
+    model.set("beforeHide", function(sender) {
+        model.view.scroller.scrollTo(0,0);
     });
 
-    view.set('model', model);
+    model.set("data", data);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initTemplate', function (e) {
+    model.set("initTemplate", function (sender) {
         var template, randomArr, result;
 
-        template = kendo.template($(".en-questions1-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.questions1.slice(), { 'copy': true } ) );
-
+        template = kendo.template($(".en-questions1-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.questions1.slice(), { "copy": true } ) );
         result = kendo.render(template, randomArr);
-        $(".en-questions1-buttons", view.screen).html(result);
 
-        template = kendo.template($(".en-questions2-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.questions2.slice(), { 'copy': true } ) );
+        $(".en-questions1-buttons", model.screen).html(result);
 
+        template = kendo.template($(".en-questions2-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.questions2.slice(), { "copy": true } ) );
         result = kendo.render(template, randomArr);
-        $(".en-questions2-buttons", view.screen).html(result);
 
-        template = kendo.template($(".en-questions3-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.questions3.slice(), { 'copy': true } ) );
+        $(".en-questions2-buttons", model.screen).html(result);
 
+        template = kendo.template($(".en-questions3-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.questions3.slice(), { "copy": true } ) );
         result = kendo.render(template, randomArr);
-        $(".en-questions3-buttons", view.screen).html(result);
 
-        template = kendo.template($(".en-questions4-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.questions4.slice(), { 'copy': true } ) );
+        $(".en-questions3-buttons", model.screen).html(result);
 
+        template = kendo.template($(".en-questions4-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.questions4.slice(), { "copy": true } ) );
         result = kendo.render(template, randomArr);
-        $(".en-questions4-buttons", view.screen).html(result);
 
-        template = kendo.template($(".en-questions5-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.questions5.slice(), { 'copy': true } ) );
+        $(".en-questions4-buttons", model.screen).html(result);
 
+        template = kendo.template($(".en-questions5-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.questions5.slice(), { "copy": true } ) );
         result = kendo.render(template, randomArr);
-        $(".en-questions5-buttons", view.screen).html(result);
+
+        $(".en-questions5-buttons", model.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('selectedClick', function(e) {
-        $(".en-bottom-blank", view.screen).click(function(e) {
+    model.set("selectedClick", function(sender) {
+        $(".en-bottom-blank", model.screen).click(function(e) {
             if ($(this).text() != "") {
                 return;
             }
@@ -144,7 +146,7 @@ app.localization.registerView('viewType8');
             $(this).addClass("selected");
         });
 
-        $(".en-button", view.screen).click(function(e) {
+        $(".en-button", model.screen).click(function(e) {
             var selected = $(this).parentsUntil(".form-content").find(".selected");
 
             if (!selected.length) {
@@ -154,11 +156,11 @@ app.localization.registerView('viewType8');
                 alert("Wrong answer !!");
                 return;
             }
-            $(this, view.screen).hide();
+            $(this, model.screen).hide();
             selected.text($(this).text());
             selected.removeClass("selected");
 
-            if ($(this).parent().find('button:visible').length <= 0) $(this).parent().hide(); 
+            if ($(this).parent().find("button:visible").length <= 0) $(this).parent().hide(); 
         });
     });
 })(app.viewType8);

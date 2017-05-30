@@ -1,17 +1,18 @@
 'use strict';
 
 app.viewType4 = kendo.observable({
+    view: null,
     screen: null,
     model: null,
 
     // event
-    onShow: function(e) {},
-    afterShow: function(e) {},
-    beforeHide: function(e) {},
+    onShow: function(sender) {},
+    afterShow: function(sender) {},
+    beforeHide: function(sender) {},
 
     // method
-    initTemplate: function(e) {},
-    initDragdrop: function(e) {},
+    initTemplate: function(sender) {},
+    initDragdrop: function(sender) {}
 });
 app.localization.registerView('viewType4');
 
@@ -19,22 +20,20 @@ app.localization.registerView('viewType4');
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
 
 // END_CUSTOM_CODE_viewType4
-(function(view) {
+(function(model) {
     var
     /// start global model properties
 
     processImage = function(img) {
-
         if (!img) {
             var empty1x1png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=';
             img = 'data:image/png;base64,' + empty1x1png;
         }
-
         return img;
     },
     /// end global model properties
 
-    model = kendo.observable({
+    data = kendo.observable({
         /// start add model functions
         good_bad_questions : [
             { word: "kind", answer: "good" },
@@ -62,53 +61,54 @@ app.localization.registerView('viewType4');
     });
 
     /// start form functions
-    view.set('onInit', function(e) {
+    model.set("onInit", function(sender) {
         // 초기화 루틴
-        view.screen = $("#viewType4Screen")
+        model.view = sender.view;
+        model.screen = $("#viewType4Screen");
 
-        view.initTemplate(e);
-        view.initDragdrop(e);
+        model.initTemplate(sender);
+        model.initDragdrop(sender);
     });
 
-    view.set('onShow', function(e) {
-        view.set('addFormData', {
+    model.set("onShow", function(sender) {
+        model.set("addFormData", {
             /// start add form data init
             /// end add form data init
         });
         
         // 재방문 할때를 위해 초기화 한다.
-        e.view.scroller.scrollTo(0,0);
-        $(".en-draggable", view.screen).show();
-        $(".en-droptarget", view.screen).text("");
+        model.view.scroller.scrollTo(0,0);
+        $(".en-draggable", model.screen).show();
+        $(".en-droptarget", model.screen).text("");
     });
 
-    view.set('beforeHide', function(e) {
-        e.view.scroller.scrollTo(0,0);
+    model.set("beforeHide", function(sender) {
+        model.view.scroller.scrollTo(0,0);
     });
 
-    view.set('model', model);
+    model.set("data", data);
     /// end form functions
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initTemplate', function (e) {
+    model.set("initTemplate", function (sender) {
         var template, randomArr, result;
 
-        template = kendo.template($(".en-good-bad-buttons-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.good_bad_questions.slice(), { 'copy': true }) );
+        template = kendo.template($(".en-good-bad-buttons-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.good_bad_questions.slice(), { "copy": true }) );
 
         result = kendo.render(template, randomArr);
-        $(".en-good-bad-buttons-content", view.screen).html(result);
+        $(".en-good-bad-buttons-content", model.screen).html(result);
 
-        template = kendo.template($(".en-adjectives-nouns-buttons-template").html());
-        randomArr = new kendo.data.ObservableArray( shuffle( view.model.adjectives_nouns_questions.slice(), { 'copy': true }) );
+        template = kendo.template($(".en-adjectives-nouns-buttons-template", model.screen).html());
+        randomArr = new kendo.data.ObservableArray( shuffle( model.data.adjectives_nouns_questions.slice(), { "copy": true }) );
 
         result = kendo.render(template, randomArr);
-        $(".en-adjectives-nouns-buttons-content", view.screen).html(result);
+        $(".en-adjectives-nouns-buttons-content", model.screen).html(result);
     });
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
-    view.set('initDragdrop', function (e) {
-        $(".en-draggable", view.screen).kendoDraggable({
+    model.set("initDragdrop", function (sender) {
+        $(".en-draggable", model.screen).kendoDraggable({
             hint: function(el) {
                 return el.clone();
             },
@@ -117,11 +117,11 @@ app.localization.registerView('viewType4');
             },
             dragend: function(e) {
                 e.currentTarget.removeClass("en-drag");
-                $(".en-droptarget", view.screen).removeClass("en-droptarget-over");
+                $(".en-droptarget", model.screen).removeClass("en-droptarget-over");
             }
         });
 
-        $(".en-droptarget", view.screen).kendoDropTarget({
+        $(".en-droptarget", model.screen).kendoDropTarget({
             dragenter: function(e) {
                  e.dropTarget.addClass("en-droptarget-over");
             },
